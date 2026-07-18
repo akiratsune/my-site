@@ -1,26 +1,77 @@
-<div style="
-    width: 100%;
-    text-align: center;
-    margin-top: 60px;
-    font-family: Georgia, serif;
-">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
 
-    <!-- Логотип -->
-    <div style="
-        font-size: 32px;
-    ">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>abara.ge</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;
+
+            display: flex;
+            flex-direction: column;
+
+            box-sizing: border-box;
+            padding: 60px 20px 50px;
+
+            text-align: center;
+            font-family: Georgia, serif;
+        }
+
+        .logo {
+            font-size: 32px;
+        }
+
+        .empty-space {
+            flex: 1;
+        }
+
+        .bottom-text {
+            font-size: 24px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding-top: 50px;
+                padding-bottom: 40px;
+            }
+
+            .logo {
+                font-size: 27px;
+            }
+
+            .bottom-text {
+                font-size: 19px;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="logo">
         ТНЕ S Dress Code Ъ!
     </div>
 
-    <!-- Пустое место для будущего текста -->
-    <div style="height: 600px;"></div>
+    <div class="empty-space"></div>
 
-    <!-- Нижняя подпись -->
-    <div style="
-        font-size: 24px;
-        margin-bottom: 60px;
-    ">
+    <div class="bottom-text">
         *ОбЪнимаюЪ_КрепЪкЪо_ВашаЪ_РЪепЪкЪаЪ!*
     </div>
 
-</div>
+</body>
+</html>
