@@ -1,87 +1,81 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>abara.ge</title>
 
-    <title>abara.ge</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+html,body{
+    width:100%;
+    height:100%;
+    overflow-x:hidden;
+}
 
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden;
-        }
+body{
+    min-height:100vh;
+    min-height:100dvh;
 
-        body {
-            min-height: 100vh;
-            min-height: 100dvh;
+    display:flex;
+    flex-direction:column;
 
-            display: flex;
-            flex-direction: column;
+    padding:60px 20px 40px;
 
-            padding: 60px 20px 40px;
+    font-family:Georgia, serif;
+    text-align:center;
+    background:#fff;
+}
 
-            font-family: Georgia, serif;
-            text-align: center;
-            background: white;
-        }
+.logo{
+    font-size:32px;
+    line-height:1.2;
+}
 
-        .logo {
-            font-size: clamp(26px, 5vw, 52px);
-            line-height: 1.2;
-        }
+.space{
+    flex:1;
+}
 
-        .space {
-            flex: 1;
-        }
+.bottom{
+    font-size:20px;
+    line-height:1.3;
+}
 
-        .bottom-text {
-            font-size: clamp(16px, 2vw, 24px);
-            line-height: 1.4;
+@media (max-width:768px){
 
-            white-space: normal;
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
+    body{
+        padding:45px 20px 35px;
+    }
 
-        @media (max-width: 768px) {
+    .logo{
+        font-size:24px;
+    }
 
-            body {
-                padding: 45px 20px 35px;
-            }
+    .bottom{
+        font-size:14px;
+    }
 
-            .logo {
-                font-size: 24px;
-            }
-
-            .bottom-text {
-                font-size: 16px;
-            }
-
-        }
-    </style>
+}
+</style>
 
 </head>
 
 <body>
 
-    <div class="logo">
-        THE S Dress Code Ъ!
-    </div>
+<div class="logo">
+THE S Dress Code Ъ!
+</div>
 
-    <div class="space"></div>
+<div class="space"></div>
 
-    <div class="bottom-text">
-        *ОбЪнимаюЪ_КрепЪкЪо_ВашаЪ_РЪепЪкЪаЪ!*
-    </div>
+<div class="bottom">
+*ОбЪнимаюЪ_КрепЪкЪо_ВашаЪ_РЪепЪкЪаЪ!*
+</div>
 
 </body>
 </html>
