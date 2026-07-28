@@ -12,7 +12,7 @@
 <!-- Microsoft Clarity Code for abara.ge -->
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a]||[]).push(arguments)};
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
     t=l.createElement(r);
     t.async=1;
     t.src="https://www.clarity.ms/tag/"+i;
@@ -62,14 +62,77 @@ body {
 }
 
 .logo-subtitle a {
+    position: relative;
+    display: inline-block;
     color: inherit;
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
+    padding-bottom: 5px;
 }
 
-.logo-subtitle a:hover {
-    border-bottom-color: currentColor;
+.logo-subtitle a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.9;
+    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.logo-subtitle a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.4);
+    box-shadow:
+        0 0 4px currentColor,
+        0 0 8px currentColor,
+        0 0 14px currentColor;
+    transition:
+        left 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.18s ease,
+        transform 0.18s ease;
+}
+
+.logo-subtitle a:hover::before {
+    width: 100%;
+}
+
+.logo-subtitle a:hover::after {
+    left: 100%;
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    animation: magic-fade 0.8s forwards;
+}
+
+@keyframes magic-fade {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.4);
+    }
+
+    15% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+    75% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.4);
+    }
 }
 
 .space-top {
@@ -142,6 +205,15 @@ body {
     .document-link {
         margin-top: 10px;
         font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .logo-subtitle a::before,
+    .logo-subtitle a::after {
+        transition: none;
+        animation: none;
     }
 }
 </style>
