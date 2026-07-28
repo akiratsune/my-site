@@ -62,55 +62,63 @@ body {
 }
 
 .logo-subtitle a {
-    position: relative;
-    display: inline-block;
     color: inherit;
     text-decoration: none;
-    padding-bottom: 5px;
 }
 
-.logo-subtitle a::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.9;
-    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
+/* Анимация работает только на устройствах с мышью и настоящим наведением */
+@media (hover: hover) and (pointer: fine) {
 
-.logo-subtitle a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: currentColor;
-    opacity: 0;
-    transform: translateX(-50%) scale(0.4);
-    box-shadow:
-        0 0 4px currentColor,
-        0 0 8px currentColor,
-        0 0 14px currentColor;
-    transition:
-        left 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.18s ease,
-        transform 0.18s ease;
-}
+    .logo-subtitle a {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
 
-.logo-subtitle a:hover::before {
-    width: 100%;
-}
+    .logo-subtitle a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background: currentColor;
+        opacity: 0.9;
+        transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-.logo-subtitle a:hover::after {
-    left: 100%;
-    opacity: 1;
-    transform: translateX(-50%) scale(1);
-    animation: magic-fade 0.8s forwards;
+    .logo-subtitle a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #ffd86b;
+        opacity: 0;
+        transform: translateX(-50%) scale(0.4);
+        box-shadow:
+            0 0 4px #ffd86b,
+            0 0 8px #ffd86b,
+            0 0 14px #ffca3a,
+            0 0 20px rgba(255, 202, 58, 0.65);
+        transition:
+            left 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+            opacity 0.18s ease,
+            transform 0.18s ease;
+    }
+
+    .logo-subtitle a:hover::before {
+        width: 100%;
+    }
+
+    .logo-subtitle a:hover::after {
+        left: 100%;
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+        animation: magic-fade 0.8s forwards;
+    }
 }
 
 @keyframes magic-fade {
@@ -193,6 +201,19 @@ body {
         letter-spacing: 2px;
     }
 
+    .logo-subtitle a {
+        display: inline;
+        padding-bottom: 0;
+    }
+
+    .logo-subtitle a::before,
+    .logo-subtitle a::after {
+        display: none;
+        content: none;
+        animation: none;
+        transition: none;
+    }
+
     .center-text {
         font-size: 16px;
         line-height: 1.5;
@@ -226,9 +247,10 @@ THE S<span class="zero">0</span>L<span class="zero">0</span> Dress C<span class=
 </div>
 
 <div class="logo-subtitle">
-<a href="https://docs.google.com/document/d/1DtUyB0xvjeMP4cyrFprCFp6KbFlUc3Oz0lO7DcO1AtM/edit?tab=t.0"
-target="_blank"
-rel="noopener noreferrer">
+<a
+    href="https://docs.google.com/document/d/1DtUyB0xvjeMP4cyrFprCFp6KbFlUc3Oz0lO7DcO1AtM/edit?tab=t.0"
+    target="_blank"
+    rel="noopener noreferrer">
 zetsno
 </a>
 </div>
@@ -246,9 +268,10 @@ zetsno
 
 <div class="document-link">
 !•! რეგ.
-<a href="https://docs.google.com/document/d/1Plk2D0RGZ45bdyqpKur3mm1RG96w4hGb/edit"
-target="_blank"
-rel="noopener noreferrer">
+<a
+    href="https://docs.google.com/document/d/1Plk2D0RGZ45bdyqpKur3mm1RG96w4hGb/edit"
+    target="_blank"
+    rel="noopener noreferrer">
 № 10410/9
 </a>
 !•!
