@@ -66,7 +66,7 @@ body {
     text-decoration: none;
 }
 
-/* Анимация работает только на устройствах с мышью и настоящим наведением */
+/* Магическая анимация только для устройств с мышью */
 @media (hover: hover) and (pointer: fine) {
 
     .logo-subtitle a {
@@ -83,8 +83,8 @@ body {
         width: 0;
         height: 1px;
         background: currentColor;
-        opacity: 0.9;
-        transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        opacity: .9;
+        transition: width .8s cubic-bezier(.22,1,.36,1);
     }
 
     .logo-subtitle a::after {
@@ -97,16 +97,16 @@ body {
         border-radius: 50%;
         background: #ffd86b;
         opacity: 0;
-        transform: translateX(-50%) scale(0.4);
+        transform: translateX(-50%) scale(.4);
         box-shadow:
             0 0 4px #ffd86b,
             0 0 8px #ffd86b,
             0 0 14px #ffca3a,
-            0 0 20px rgba(255, 202, 58, 0.65);
+            0 0 20px rgba(255,202,58,.65);
         transition:
-            left 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-            opacity 0.18s ease,
-            transform 0.18s ease;
+            left .8s cubic-bezier(.22,1,.36,1),
+            opacity .18s ease,
+            transform .18s ease;
     }
 
     .logo-subtitle a:hover::before {
@@ -117,14 +117,14 @@ body {
         left: 100%;
         opacity: 1;
         transform: translateX(-50%) scale(1);
-        animation: magic-fade 0.8s forwards;
+        animation: magic-fade .8s forwards;
     }
 }
 
 @keyframes magic-fade {
     0% {
         opacity: 0;
-        transform: translateX(-50%) scale(0.4);
+        transform: translateX(-50%) scale(.4);
     }
 
     15% {
@@ -139,7 +139,7 @@ body {
 
     100% {
         opacity: 0;
-        transform: translateX(-50%) scale(0.4);
+        transform: translateX(-50%) scale(.4);
     }
 }
 
@@ -182,7 +182,7 @@ body {
 }
 
 .document-link a:hover {
-    opacity: 0.7;
+    opacity: .7;
 }
 
 @media (max-width: 768px) {
@@ -269,7 +269,7 @@ zetsno
 <div class="document-link">
 !•! რეგ.
 <a
-    href="https://docs.google.com/document/d/1Plk2D0RGZ45bdyqpKur3mm1RG96w4hGb/edit"
+    href="https://docs.google.com/document/d/1dzavgyY7NUK9MJwo9I7Y9f8-AgA1hk2E/edit"
     target="_blank"
     rel="noopener noreferrer">
 № 10410/9
