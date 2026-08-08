@@ -281,5 +281,75 @@ zetsno
 </div>
 </div>
 
+<!-- ABARA Website Analytics -->
+<script>
+(function () {
+    "use strict";
+
+    const endpoint =
+        "/website/session/start";
+
+    const pagePath =
+        window.location.pathname +
+        window.location.search;
+
+    const documentReferrer =
+        document.referrer || null;
+
+    async function registerWebsiteVisit() {
+        try {
+            const response =
+                await fetch(
+                    endpoint,
+                    {
+                        method: "POST",
+
+                        credentials:
+                            "include",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({
+                                pagePath:
+                                    pagePath,
+
+                                documentReferrer:
+                                    documentReferrer
+                            })
+                    }
+                );
+
+            if (!response.ok) {
+                console.error(
+                    "ABARA analytics request failed:",
+                    response.status
+                );
+
+                return;
+            }
+
+            const result =
+                await response.json();
+
+            console.debug(
+                "ABARA analytics:",
+                result
+            );
+        } catch (error) {
+            console.error(
+                "ABARA analytics error:",
+                error
+            );
+        }
+    }
+
+    registerWebsiteVisit();
+})();
+</script>
+
 </body>
 </html>
