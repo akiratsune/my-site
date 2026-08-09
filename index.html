@@ -312,6 +312,9 @@ zetsno
     let sessionEnded =
         false;
 
+    let heartbeatInFlight =
+        false;
+
     function nowMs() {
         return Date.now();
     }
@@ -367,7 +370,10 @@ zetsno
         unsentActiveSeconds =
             0;
 
-        if (isPageActive()) {
+        if (
+            isPageActive() &&
+            !sessionEnded
+        ) {
             startActiveClock();
         }
 
@@ -448,7 +454,9 @@ zetsno
 
             heartbeatTimer =
                 window.setInterval(
-                    sendHeartbeat,
+                    function () {
+                        sendHeartbeat();
+                    },
                     HEARTBEAT_INTERVAL_MS
                 );
         } catch (error) {
@@ -462,7 +470,8 @@ zetsno
     async function sendHeartbeat() {
         if (
             sessionId === null ||
-            sessionEnded
+            sessionEnded ||
+            heartbeatInFlight
         ) {
             return;
         }
@@ -470,11 +479,8 @@ zetsno
         const activeSeconds =
             collectActiveSeconds();
 
-        if (
-            activeSeconds <= 0
-        ) {
-            return;
-        }
+        heartbeatInFlight =
+            true;
 
         try {
             const response =
@@ -503,6 +509,9 @@ zetsno
                 "ABARA heartbeat error:",
                 error
             );
+        } finally {
+            heartbeatInFlight =
+                false;
         }
     }
 
@@ -591,6 +600,8 @@ zetsno
                 "visible"
             ) {
                 startActiveClock();
+
+                sendHeartbeat();
             } else {
                 stopActiveClock();
 
@@ -601,7 +612,11 @@ zetsno
 
     window.addEventListener(
         "focus",
-        startActiveClock
+        function () {
+            startActiveClock();
+
+            sendHeartbeat();
+        }
     );
 
     window.addEventListener(
