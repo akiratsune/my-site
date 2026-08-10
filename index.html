@@ -295,7 +295,7 @@ zetsno
         "/website/session/end";
 
     const HEARTBEAT_INTERVAL_MS =
-        15000;
+        5000;
 
     let sessionId =
         null;
@@ -321,8 +321,8 @@ zetsno
 
     function isPageActive() {
         return (
-            document.visibilityState === "visible" &&
-            document.hasFocus()
+            document.visibilityState ===
+            "visible"
         );
     }
 
@@ -622,8 +622,6 @@ zetsno
     window.addEventListener(
         "blur",
         function () {
-            stopActiveClock();
-
             sendHeartbeat();
         }
     );
