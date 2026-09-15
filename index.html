@@ -4,12 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>abara.ge</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
-
-<!-- Microsoft Clarity Code for abara.ge -->
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -20,752 +17,199 @@
     y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "xt6kvk3ez9");
 </script>
-
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    min-height: 100vh;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    padding: 42px 20px 40px;
-    background: #ffffff;
-    font-family: Georgia, serif;
-    text-align: center;
-}
-
-.logo {
-    font-size: 32px;
-    line-height: 1.2;
-    font-family: Georgia, serif;
-}
-
-.logo-subtitle {
-    margin-top: 8px;
-    font-family: "Cinzel", Georgia, serif;
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    line-height: 1.1;
-}
-
-.logo-subtitle a {
-    color: inherit;
-    text-decoration: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-
-    .logo-subtitle a {
-        position: relative;
-        display: inline-block;
-        padding-bottom: 5px;
-    }
-
-    .logo-subtitle a::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0;
-        height: 1px;
-        background: currentColor;
-        opacity: .9;
-        transition: width .8s cubic-bezier(.22,1,.36,1);
-    }
-
-    .logo-subtitle a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -3px;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #ffd86b;
-        opacity: 0;
-        transform: translateX(-50%) scale(.4);
-        box-shadow:
-            0 0 4px #ffd86b,
-            0 0 8px #ffd86b,
-            0 0 14px #ffca3a,
-            0 0 20px rgba(255,202,58,.65);
-        transition:
-            left .8s cubic-bezier(.22,1,.36,1),
-            opacity .18s ease,
-            transform .18s ease;
-    }
-
-    .logo-subtitle a:hover::before {
-        width: 100%;
-    }
-
-    .logo-subtitle a:hover::after {
-        left: 100%;
-        opacity: 1;
-        transform: translateX(-50%) scale(1);
-        animation: magic-fade .8s forwards;
-    }
-}
-
-@keyframes magic-fade {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) scale(.4);
-    }
-
-    15% {
-        opacity: 1;
-        transform: translateX(-50%) scale(1);
-    }
-
-    75% {
-        opacity: 1;
-        transform: translateX(-50%) scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateX(-50%) scale(.4);
-    }
-}
-
-.space-top {
-    flex: 1;
-}
-
-.center-stage {
-    width: 100%;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr);
-    align-items: center;
-    margin: 30px 0;
-}
-
-.hand-slot {
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ornament-hand {
-    display: block;
-    width: auto;
-    height: 180px;
-    max-width: 78%;
-    object-fit: contain;
-}
-
-.ornament-hand-right {
-    transform: scaleX(-1);
-}
-
-.center-text {
-    margin: 0;
-    font-size: 23px;
-    line-height: 1.5;
-    font-family: Georgia, serif;
-    word-break: normal;
-}
-
-.center-line {
-    display: block;
-    white-space: nowrap;
-}
-
-@media (min-width: 769px) {
-    .center-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .center-line {
-        width: max-content;
-        transform-origin: center center;
-    }
-}
-
-.zero {
-    font-family: Cambria, "Times New Roman", serif;
-    font-weight: normal;
-}
-
-.space-bottom {
-    flex: 1;
-}
-
-.bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.bottom-message {
-    font-size: 28px;
-    line-height: 1.2;
-    font-family: Georgia, serif;
-}
-
-.document-link {
-    margin-bottom: 12px;
-    font-size: 20px;
-    line-height: 1.1;
-    color: #000000;
-}
-
-.document-link a {
-    color: inherit;
-    text-decoration: underline;
-}
-
-.document-link a:hover {
-    opacity: .7;
-}
-
-@media (max-width: 768px) {
-
-    body {
-        padding: 28px 20px 35px;
-    }
-
-    .logo {
-        font-size: 24px;
-    }
-
-    .logo-subtitle {
-        margin-top: 12px;
-        font-size: 19px;
-        letter-spacing: 2px;
-    }
-
-    .logo-subtitle a {
-        display: inline;
-        padding-bottom: 0;
-    }
-
-    .logo-subtitle a::before,
-    .logo-subtitle a::after {
-        display: none;
-        content: none;
-        animation: none;
-        transition: none;
-    }
-
-    .center-stage {
-        display: block;
-        margin: 30px 0;
-    }
-
-    .hand-slot {
-        display: none;
-    }
-
-    .center-text {
-        width: 88vw;
-        max-width: 330px;
-        margin: 0 auto;
-        font-size: clamp(13px, 3.6vw, 15px);
-        line-height: 1.5;
-        word-break: normal;
-        overflow-wrap: anywhere;
-        hyphens: none;
-    }
-
-    .center-line {
-        display: inline;
-        width: auto;
-        white-space: normal;
-        transform: none !important;
-    }
-
-    .bottom-message {
-        max-width: 100%;
-        font-size: 14px;
-        line-height: 1.2;
-        white-space: nowrap;
-    }
-
-    .document-link {
-        margin-bottom: 10px;
-        font-size: 13px;
-        line-height: 1.1;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    .logo-subtitle a::before,
-    .logo-subtitle a::after {
-        transition: none;
-        animation: none;
-    }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow-x:hidden}
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:42px 20px 40px;background:#fff;font-family:Georgia,serif;text-align:center}
+.logo{font-size:32px;line-height:1.2}
+.logo-subtitle{margin-top:8px;font-family:"Cinzel",Georgia,serif;font-size:22px;font-weight:700;letter-spacing:2px;line-height:1.1}
+.logo-subtitle a{color:inherit;text-decoration:none}
+@media (hover:hover) and (pointer:fine){
+.logo-subtitle a{position:relative;display:inline-block;padding-bottom:5px}
+.logo-subtitle a::before{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:currentColor;opacity:.9;transition:width .8s cubic-bezier(.22,1,.36,1)}
+.logo-subtitle a::after{content:"";position:absolute;left:0;bottom:-3px;width:7px;height:7px;border-radius:50%;background:#ffd86b;opacity:0;transform:translateX(-50%) scale(.4);box-shadow:0 0 4px #ffd86b,0 0 8px #ffd86b,0 0 14px #ffca3a,0 0 20px rgba(255,202,58,.65);transition:left .8s cubic-bezier(.22,1,.36,1),opacity .18s ease,transform .18s ease}
+.logo-subtitle a:hover::before{width:100%}
+.logo-subtitle a:hover::after{left:100%;opacity:1;transform:translateX(-50%) scale(1);animation:magic-fade .8s forwards}}
+@keyframes magic-fade{0%{opacity:0;transform:translateX(-50%) scale(.4)}15%,75%{opacity:1;transform:translateX(-50%) scale(1)}100%{opacity:0;transform:translateX(-50%) scale(.4)}}
+.space-top,.space-bottom{flex:1}
+.center-stage{width:100%;display:grid;grid-template-columns:minmax(0,1fr) max-content minmax(0,1fr);align-items:center;margin:30px 0}
+.hand-slot{min-width:0;display:flex;align-items:center;justify-content:center}
+.ornament-hand{display:block;width:auto;height:180px;max-width:78%;object-fit:contain}
+.ornament-hand-right{transform:scaleX(-1)}
+.zero{font-family:Cambria,"Times New Roman",serif;font-weight:normal}
+.desktop-center-text{margin:0;font-size:23px;line-height:1.5;display:flex;flex-direction:column;align-items:center}
+.desktop-center-text .center-line{display:block;width:max-content;white-space:nowrap;transform-origin:center center}
+.mobile-center-text{display:none}
+.bottom{display:flex;flex-direction:column;align-items:center}
+.bottom-message{font-size:28px;line-height:1.2}
+.document-link{margin-bottom:12px;font-size:20px;line-height:1.1;color:#000}
+.document-link a{color:inherit;text-decoration:underline}
+.document-link a:hover{opacity:.7}
+@media (max-width:768px){
+body{padding:28px 20px 35px}
+.logo{font-size:24px}
+.logo-subtitle{margin-top:12px;font-size:19px;letter-spacing:2px}
+.logo-subtitle a{display:inline;padding-bottom:0}
+.logo-subtitle a::before,.logo-subtitle a::after{display:none;content:none;animation:none;transition:none}
+.center-stage{display:block;margin:30px 0}
+.hand-slot,.desktop-center-text{display:none}
+.mobile-center-text{display:flex;flex-direction:column;align-items:center;width:92vw;max-width:355px;margin:0 auto;font-size:clamp(12px,3.35vw,14px);line-height:1.5}
+.mobile-line{display:block;white-space:nowrap}
+.bottom-message{max-width:100%;font-size:14px;line-height:1.2;white-space:nowrap}
+.document-link{margin-bottom:10px;font-size:13px;line-height:1.1}}
+@media (prefers-reduced-motion:reduce){.logo-subtitle a::before,.logo-subtitle a::after{transition:none;animation:none}}
 </style>
 </head>
-
 <body>
-
-<div class="logo">
-THE S<span class="zero">0</span>L<span class="zero">0</span> Dress C<span class="zero">0</span>de Ъ!
-</div>
-
-<div class="logo-subtitle">
-<a
-    href="https://docs.google.com/document/d/1DtUyB0xvjeMP4cyrFprCFp6KbFlUc3Oz0lO7DcO1AtM/edit?tab=t.0"
-    target="_blank"
-    rel="noopener noreferrer">
-zetsno
-</a>
-</div>
-
+<div class="logo">THE S<span class="zero">0</span>L<span class="zero">0</span> Dress C<span class="zero">0</span>de Ъ!</div>
+<div class="logo-subtitle"><a href="https://docs.google.com/document/d/1DtUyB0xvjeMP4cyrFprCFp6KbFlUc3Oz0lO7DcO1AtM/edit?tab=t.0" target="_blank" rel="noopener noreferrer">zetsno</a></div>
 <div class="space-top"></div>
-
 <div class="center-stage">
-<div class="hand-slot hand-slot-left" aria-hidden="true">
-<img class="ornament-hand" src="hand-ornament-final.svg?v=1" alt="">
-</div>
-
-<div class="center-text">
+<div class="hand-slot" aria-hidden="true"><img class="ornament-hand" src="hand-ornament-final.svg?v=1" alt=""></div>
+<div class="desktop-center-text">
 <span class="center-line">[*]❗!•!⊹!!Тотально⟂Тишина!!⊹!!Тут⟂<span class="zero">0</span>!⟂Ъ!!⊹!!Т⟂Ф!⊹!</span>
 <span class="center-line">Твердо⟂Тишина!!⊹!!Тишина⟂Теперь!!⋈!![Образ⟂</span>
 <span class="center-line">Отсчета_!![!•!⟂<span class="zero">0</span>![йа👣ЪдЪро_бал╔✶╗анса]!Ъ⟂!•!]!!</span>
 <span class="center-line">Сферон!!]⋈!!Точно⟂ДоволенЪ!!⊹!!Давление⟂Тишины!!</span>
-<span class="center-line"> ⊹!!Ф⟂Ф!!⊹!!_!Ъ⟂Ъ!_!!⊹!!Тишина⟂Тотальна!!!•!❗[*]</span>
+<span class="center-line">⊹!!Ф⟂Ф!!⊹!!_!Ъ⟂Ъ!_!!⊹!!Тишина⟂Тотальна!!!•!❗[*]</span>
 </div>
-
-<div class="hand-slot hand-slot-right" aria-hidden="true">
-<img class="ornament-hand ornament-hand-right" src="hand-ornament-final.svg?v=1" alt="">
+<div class="mobile-center-text">
+<span class="mobile-line">[*]❗!•!⊹!!Тотально⟂Тишина!!⊹!!Тут⟂<span class="zero">0</span>!⟂Ъ!!</span>
+<span class="mobile-line">⊹!!Т⟂Ф!⊹!!Твердо⟂Тишина!!⊹!!</span>
+<span class="mobile-line">Тишина⟂Теперь!!⋈!![Образ⟂Отсчета_!![!•!⟂<span class="zero">0</span>!</span>
+<span class="mobile-line">[йа👣ЪдЪро_бал╔✶╗анса]</span>
+<span class="mobile-line">!Ъ⟂!•!]!!Сферон!!]⋈!!Точно⟂ДоволенЪ!!⊹!!</span>
+<span class="mobile-line">Давление⟂Тишины!!⊹!!Ф⟂Ф!!⊹!!_!Ъ⟂Ъ!_!!</span>
+<span class="mobile-line">⊹!!Тишина⟂Тотальна!!!•!❗ [*]</span>
 </div>
+<div class="hand-slot" aria-hidden="true"><img class="ornament-hand ornament-hand-right" src="hand-ornament-final.svg?v=1" alt=""></div>
 </div>
-
 <div class="space-bottom"></div>
-
 <div class="bottom">
-<div class="document-link">
-!•! რეგ.
-<a
-    href="https://docs.google.com/document/d/1aff2EAbDRncKDoHabG_YfdSNvMZW5DM1zd7aU5xUC5A/edit?tab=t.0"
-    target="_blank"
-    rel="noopener noreferrer">
-№ 10410/9
-</a>
-!•!
-</div>
-
+<div class="document-link">!•! რეგ. <a href="https://docs.google.com/document/d/1aff2EAbDRncKDoHabG_YfdSNvMZW5DM1zd7aU5xUC5A/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> !•!</div>
 <div class="bottom-message">*ОбЪнимаюЪ_КрепЪкЪо_ВашаЪ_РЪепЪкЪаЪ!*</div>
 </div>
-
 <script>
-(function () {
-    function alignDesktopCenterLines() {
-        const lines = Array.from(document.querySelectorAll('.center-text .center-line'));
-
-        if (!window.matchMedia('(min-width: 769px)').matches) {
-            lines.forEach(function (line) {
-                line.style.transform = '';
-            });
-            return;
-        }
-
-        if (lines.length < 4) {
-            return;
-        }
-
-        lines.forEach(function (line) {
-            line.style.transform = 'none';
-        });
-
-        const referenceWidth = lines[3].getBoundingClientRect().width;
-
-        lines.forEach(function (line, index) {
-            if (index === 3) {
-                return;
-            }
-
-            const width = line.getBoundingClientRect().width;
-            if (width > 0) {
-                line.style.transform = 'scaleX(' + (referenceWidth / width) + ')';
-            }
-        });
-    }
-
-    window.addEventListener('load', alignDesktopCenterLines);
-    window.addEventListener('resize', alignDesktopCenterLines);
-
-    if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(alignDesktopCenterLines);
-    }
+(function(){
+function alignDesktop(){
+if(!window.matchMedia('(min-width:769px)').matches)return;
+const lines=Array.from(document.querySelectorAll('.desktop-center-text .center-line'));
+if(lines.length<4)return;
+lines.forEach(function(line){line.style.transform='none'});
+const referenceWidth=lines[3].getBoundingClientRect().width;
+lines.forEach(function(line,index){if(index===3)return;const width=line.getBoundingClientRect().width;if(width>0)line.style.transform='scaleX('+(referenceWidth/width)+')'});
+}
+window.addEventListener('load',alignDesktop);
+window.addEventListener('resize',alignDesktop);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(alignDesktop);
 })();
 </script>
-
 <!-- ABARA Website Analytics -->
 <script>
 (function () {
     "use strict";
-
-    const START_ENDPOINT =
-        "/website/session/start";
-
-    const HEARTBEAT_ENDPOINT =
-        "/website/session/heartbeat";
-
-    const END_ENDPOINT =
-        "/website/session/end";
-
-    const HEARTBEAT_INTERVAL_MS =
-        5000;
-
-    let sessionId =
-        null;
-
-    let heartbeatTimer =
-        null;
-
-    let activeSince =
-        null;
-
-    let unsentActiveSeconds =
-        0;
-
-    let sessionEnded =
-        false;
-
-    let heartbeatInFlight =
-        false;
-
-    function nowMs() {
-        return Date.now();
-    }
-
-    function isPageActive() {
-        return (
-            document.visibilityState ===
-            "visible"
-        );
-    }
-
+    const START_ENDPOINT = "/website/session/start";
+    const HEARTBEAT_ENDPOINT = "/website/session/heartbeat";
+    const END_ENDPOINT = "/website/session/end";
+    const HEARTBEAT_INTERVAL_MS = 5000;
+    let sessionId = null;
+    let heartbeatTimer = null;
+    let activeSince = null;
+    let unsentActiveSeconds = 0;
+    let sessionEnded = false;
+    let heartbeatInFlight = false;
+    function nowMs() { return Date.now(); }
+    function isPageActive() { return document.visibilityState === "visible"; }
     function startActiveClock() {
-        if (
-            activeSince !== null ||
-            !isPageActive() ||
-            sessionEnded
-        ) {
-            return;
-        }
-
-        activeSince =
-            nowMs();
+        if (activeSince !== null || !isPageActive() || sessionEnded) return;
+        activeSince = nowMs();
     }
-
     function stopActiveClock() {
-        if (
-            activeSince === null
-        ) {
-            return;
-        }
-
-        const elapsedMs =
-            Math.max(
-                0,
-                nowMs() - activeSince
-            );
-
-        unsentActiveSeconds +=
-            Math.floor(
-                elapsedMs / 1000
-            );
-
-        activeSince =
-            null;
+        if (activeSince === null) return;
+        unsentActiveSeconds += Math.floor(Math.max(0, nowMs() - activeSince) / 1000);
+        activeSince = null;
     }
-
     function collectActiveSeconds() {
         stopActiveClock();
-
-        const seconds =
-            unsentActiveSeconds;
-
-        unsentActiveSeconds =
-            0;
-
-        if (
-            isPageActive() &&
-            !sessionEnded
-        ) {
-            startActiveClock();
-        }
-
+        const seconds = unsentActiveSeconds;
+        unsentActiveSeconds = 0;
+        if (isPageActive() && !sessionEnded) startActiveClock();
         return seconds;
     }
-
-    async function postJson(
-        endpoint,
-        payload,
-        keepalive = false
-    ) {
-        return fetch(
-            endpoint,
-            {
-                method: "POST",
-
-                credentials:
-                    "include",
-
-                keepalive,
-
-                headers: {
-                    "Content-Type":
-                        "application/json"
-                },
-
-                body:
-                    JSON.stringify(
-                        payload
-                    )
-            }
-        );
+    async function postJson(endpoint, payload, keepalive = false) {
+        return fetch(endpoint, {
+            method: "POST",
+            credentials: "include",
+            keepalive,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
     }
-
     async function startSession() {
         try {
-            const response =
-                await postJson(
-                    START_ENDPOINT,
-                    {
-                        pagePath:
-                            window.location.pathname +
-                            window.location.search,
-
-                        documentReferrer:
-                            document.referrer || null
-                    }
-                );
-
-            if (!response.ok) {
-                console.error(
-                    "ABARA start request failed:",
-                    response.status
-                );
-
-                return;
-            }
-
-            const result =
-                await response.json();
-
-            if (
-                !result ||
-                !result.session ||
-                !result.session.id
-            ) {
-                console.error(
-                    "ABARA start response missing session id"
-                );
-
-                return;
-            }
-
-            sessionId =
-                result.session.id;
-
-            startActiveClock();
-
-            heartbeatTimer =
-                window.setInterval(
-                    function () {
-                        sendHeartbeat();
-                    },
-                    HEARTBEAT_INTERVAL_MS
-                );
-        } catch (error) {
-            console.error(
-                "ABARA start error:",
-                error
-            );
-        }
-    }
-
-    async function sendHeartbeat() {
-        if (
-            sessionId === null ||
-            sessionEnded ||
-            heartbeatInFlight
-        ) {
-            return;
-        }
-
-        const activeSeconds =
-            collectActiveSeconds();
-
-        heartbeatInFlight =
-            true;
-
-        try {
-            const response =
-                await postJson(
-                    HEARTBEAT_ENDPOINT,
-                    {
-                        sessionId,
-                        activeSeconds
-                    }
-                );
-
-            if (!response.ok) {
-                unsentActiveSeconds +=
-                    activeSeconds;
-
-                console.error(
-                    "ABARA heartbeat failed:",
-                    response.status
-                );
-            }
-        } catch (error) {
-            unsentActiveSeconds +=
-                activeSeconds;
-
-            console.error(
-                "ABARA heartbeat error:",
-                error
-            );
-        } finally {
-            heartbeatInFlight =
-                false;
-        }
-    }
-
-    function endSession() {
-        if (
-            sessionId === null ||
-            sessionEnded
-        ) {
-            return;
-        }
-
-        sessionEnded =
-            true;
-
-        if (
-            heartbeatTimer !== null
-        ) {
-            clearInterval(
-                heartbeatTimer
-            );
-
-            heartbeatTimer =
-                null;
-        }
-
-        const activeSeconds =
-            collectActiveSeconds();
-
-        const payload =
-            JSON.stringify({
-                sessionId,
-                activeSeconds
+            const response = await postJson(START_ENDPOINT, {
+                pagePath: window.location.pathname + window.location.search,
+                documentReferrer: document.referrer || null
             });
-
-        if (
-            navigator.sendBeacon
-        ) {
-            const blob =
-                new Blob(
-                    [payload],
-                    {
-                        type:
-                            "application/json"
-                    }
-                );
-
-            const sent =
-                navigator.sendBeacon(
-                    END_ENDPOINT,
-                    blob
-                );
-
-            if (sent) {
-                return;
-            }
-        }
-
-        fetch(
-            END_ENDPOINT,
-            {
-                method: "POST",
-
-                credentials:
-                    "include",
-
-                keepalive: true,
-
-                headers: {
-                    "Content-Type":
-                        "application/json"
-                },
-
-                body:
-                    payload
-            }
-        ).catch(
-            function () {}
-        );
-    }
-
-    document.addEventListener(
-        "visibilitychange",
-        function () {
-            if (
-                document.visibilityState ===
-                "visible"
-            ) {
-                startActiveClock();
-
-                sendHeartbeat();
-            } else {
-                stopActiveClock();
-
-                sendHeartbeat();
-            }
-        }
-    );
-
-    window.addEventListener(
-        "focus",
-        function () {
+            if (!response.ok) return;
+            const result = await response.json();
+            if (!result || !result.session || !result.session.id) return;
+            sessionId = result.session.id;
             startActiveClock();
-
+            heartbeatTimer = window.setInterval(sendHeartbeat, HEARTBEAT_INTERVAL_MS);
+        } catch (error) {}
+    }
+    async function sendHeartbeat() {
+        if (sessionId === null || sessionEnded || heartbeatInFlight) return;
+        const activeSeconds = collectActiveSeconds();
+        heartbeatInFlight = true;
+        try {
+            const response = await postJson(HEARTBEAT_ENDPOINT, { sessionId, activeSeconds });
+            if (!response.ok) unsentActiveSeconds += activeSeconds;
+        } catch (error) {
+            unsentActiveSeconds += activeSeconds;
+        } finally {
+            heartbeatInFlight = false;
+        }
+    }
+    function endSession() {
+        if (sessionId === null || sessionEnded) return;
+        sessionEnded = true;
+        if (heartbeatTimer !== null) {
+            clearInterval(heartbeatTimer);
+            heartbeatTimer = null;
+        }
+        const activeSeconds = collectActiveSeconds();
+        const payload = JSON.stringify({ sessionId, activeSeconds });
+        if (navigator.sendBeacon) {
+            const blob = new Blob([payload], { type: "application/json" });
+            if (navigator.sendBeacon(END_ENDPOINT, blob)) return;
+        }
+        fetch(END_ENDPOINT, {
+            method: "POST",
+            credentials: "include",
+            keepalive: true,
+            headers: { "Content-Type": "application/json" },
+            body: payload
+        }).catch(function () {});
+    }
+    document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") {
+            startActiveClock();
+            sendHeartbeat();
+        } else {
+            stopActiveClock();
             sendHeartbeat();
         }
-    );
-
-    window.addEventListener(
-        "blur",
-        function () {
-            sendHeartbeat();
-        }
-    );
-
-    window.addEventListener(
-        "pagehide",
-        endSession
-    );
-
+    });
+    window.addEventListener("focus", function () {
+        startActiveClock();
+        sendHeartbeat();
+    });
+    window.addEventListener("blur", sendHeartbeat);
+    window.addEventListener("pagehide", endSession);
     startSession();
 })();
 </script>
-
 </body>
 </html>
