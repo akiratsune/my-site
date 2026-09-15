@@ -169,14 +169,21 @@ body {
 }
 
 .bottom {
-    font-size: 20px;
-    line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-message {
+    font-size: 32px;
+    line-height: 1.2;
     font-family: Georgia, serif;
 }
 
 .document-link {
-    margin-top: 12px;
-    font-size: 16px;
+    margin-bottom: 12px;
+    font-size: 22px;
+    line-height: 1.1;
     color: #000000;
 }
 
@@ -231,13 +238,15 @@ body {
         white-space: normal;
     }
 
-    .bottom {
-        font-size: 14px;
+    .bottom-message {
+        font-size: 24px;
+        line-height: 1.2;
     }
 
     .document-link {
-        margin-top: 10px;
-        font-size: 13px;
+        margin-bottom: 10px;
+        font-size: 19px;
+        line-height: 1.1;
     }
 }
 
@@ -280,8 +289,6 @@ zetsno
 <div class="space-bottom"></div>
 
 <div class="bottom">
-<div>*ОбЪнимаюЪ_КрепЪкЪо_ВашаЪ_РЪепЪкЪаЪ!*</div>
-
 <div class="document-link">
 !•! რეგ.
 <a
@@ -292,6 +299,8 @@ zetsno
 </a>
 !•!
 </div>
+
+<div class="bottom-message">*ОбЪнимаюЪ_КрепЪкЪо_ВашаЪ_РЪепЪкЪаЪ!*</div>
 </div>
 
 <!-- ABARA Website Analytics -->
