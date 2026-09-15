@@ -278,21 +278,18 @@ body {
         width: 88vw;
         max-width: 330px;
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         font-size: clamp(13px, 3.6vw, 15px);
         line-height: 1.5;
         word-break: normal;
-        overflow: visible;
+        overflow-wrap: anywhere;
         hyphens: none;
     }
 
     .center-line {
-        display: block;
-        width: max-content;
-        white-space: nowrap;
-        transform-origin: center center;
+        display: inline;
+        width: auto;
+        white-space: normal;
+        transform: none !important;
     }
 
     .bottom-message {
@@ -374,59 +371,30 @@ zetsno
 
 <script>
 (function () {
-    const centerText = document.querySelector('.center-text');
-    const desktopMarkup = centerText.innerHTML;
+    function alignDesktopCenterLines() {
+        const lines = Array.from(document.querySelectorAll('.center-text .center-line'));
 
-    const mobileMarkup = `
-<span class="center-line">[*]❗!•!⊹!!Тотально⟂Тишина!!⊹!!</span>
-<span class="center-line">Тут⟂<span class="zero">0</span>!⟂Ъ!!⊹!!Т⟂Ф!⊹!!Твердо⟂</span>
-<span class="center-line">Тишина!!⊹!!Тишина⟂Теперь!!⋈!!</span>
-<span class="center-line">[Образ⟂Отсчета_!![!•!⟂<span class="zero">0</span>![йа👣</span>
-<span class="center-line">ЪдЪро_бал╔✶╗анса]!Ъ⟂!•!]!!Сферон!!]</span>
-<span class="center-line">⋈!!Точно⟂ДоволенЪ!!⊹!!Давление⟂</span>
-<span class="center-line">Тишины!!⊹!!Ф⟂Ф!!⊹!!_!Ъ⟂Ъ!_!!</span>
-<span class="center-line">⊹!!Тишина⟂Тотальна!!!•!❗[*]</span>`;
-
-    let currentMode = null;
-
-    function setMode(isMobile) {
-        const mode = isMobile ? 'mobile' : 'desktop';
-
-        if (currentMode !== mode) {
-            centerText.innerHTML = isMobile ? mobileMarkup : desktopMarkup;
-            currentMode = mode;
+        if (!window.matchMedia('(min-width: 769px)').matches) {
+            lines.forEach(function (line) {
+                line.style.transform = '';
+            });
+            return;
         }
-    }
 
-    function alignCenterLines() {
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
-        setMode(isMobile);
-
-        const lines = Array.from(centerText.querySelectorAll('.center-line'));
-        if (!lines.length) return;
+        if (lines.length < 4) {
+            return;
+        }
 
         lines.forEach(function (line) {
             line.style.transform = 'none';
         });
 
-        if (isMobile) {
-            const targetWidth = centerText.getBoundingClientRect().width;
-
-            lines.forEach(function (line) {
-                const width = line.getBoundingClientRect().width;
-                if (width > 0) {
-                    line.style.transform = 'scaleX(' + (targetWidth / width) + ')';
-                }
-            });
-            return;
-        }
-
-        if (lines.length < 4) return;
-
         const referenceWidth = lines[3].getBoundingClientRect().width;
 
         lines.forEach(function (line, index) {
-            if (index === 3) return;
+            if (index === 3) {
+                return;
+            }
 
             const width = line.getBoundingClientRect().width;
             if (width > 0) {
@@ -435,11 +403,11 @@ zetsno
         });
     }
 
-    window.addEventListener('load', alignCenterLines);
-    window.addEventListener('resize', alignCenterLines);
+    window.addEventListener('load', alignDesktopCenterLines);
+    window.addEventListener('resize', alignDesktopCenterLines);
 
     if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(alignCenterLines);
+        document.fonts.ready.then(alignDesktopCenterLines);
     }
 })();
 </script>
