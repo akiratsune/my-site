@@ -186,6 +186,19 @@ body {
     white-space: nowrap;
 }
 
+@media (min-width: 769px) {
+    .center-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .center-line {
+        width: max-content;
+        transform-origin: center center;
+    }
+}
+
 .zero {
     font-family: Cambria, "Times New Roman", serif;
     font-weight: normal;
@@ -274,7 +287,9 @@ body {
 
     .center-line {
         display: inline;
+        width: auto;
         white-space: normal;
+        transform: none !important;
     }
 
     .bottom-message {
@@ -353,6 +368,49 @@ zetsno
 
 <div class="bottom-message">*ОбЪнимаюЪ_КрепЪкЪо_ВашаЪ_РЪепЪкЪаЪ!*</div>
 </div>
+
+<script>
+(function () {
+    function alignDesktopCenterLines() {
+        const lines = Array.from(document.querySelectorAll('.center-text .center-line'));
+
+        if (!window.matchMedia('(min-width: 769px)').matches) {
+            lines.forEach(function (line) {
+                line.style.transform = '';
+            });
+            return;
+        }
+
+        if (lines.length < 4) {
+            return;
+        }
+
+        lines.forEach(function (line) {
+            line.style.transform = 'none';
+        });
+
+        const referenceWidth = lines[3].getBoundingClientRect().width;
+
+        lines.forEach(function (line, index) {
+            if (index === 3) {
+                return;
+            }
+
+            const width = line.getBoundingClientRect().width;
+            if (width > 0) {
+                line.style.transform = 'scaleX(' + (referenceWidth / width) + ')';
+            }
+        });
+    }
+
+    window.addEventListener('load', alignDesktopCenterLines);
+    window.addEventListener('resize', alignDesktopCenterLines);
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(alignDesktopCenterLines);
+    }
+})();
+</script>
 
 <!-- ABARA Website Analytics -->
 <script>
