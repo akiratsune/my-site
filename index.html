@@ -146,8 +146,35 @@ body {
     flex: 1;
 }
 
-.center-text {
+.center-stage {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr);
+    align-items: center;
     margin: 30px 0;
+}
+
+.hand-slot {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ornament-hand {
+    display: block;
+    width: auto;
+    height: 180px;
+    max-width: 78%;
+    object-fit: contain;
+}
+
+.ornament-hand-right {
+    transform: scaleX(-1);
+}
+
+.center-text {
+    margin: 0;
     font-size: 23px;
     line-height: 1.5;
     font-family: Georgia, serif;
@@ -225,10 +252,19 @@ body {
         transition: none;
     }
 
+    .center-stage {
+        display: block;
+        margin: 30px 0;
+    }
+
+    .hand-slot {
+        display: none;
+    }
+
     .center-text {
         width: 88vw;
         max-width: 330px;
-        margin: 30px auto;
+        margin: 0 auto;
         font-size: clamp(13px, 3.6vw, 15px);
         line-height: 1.5;
         word-break: normal;
@@ -283,12 +319,22 @@ zetsno
 
 <div class="space-top"></div>
 
+<div class="center-stage">
+<div class="hand-slot hand-slot-left" aria-hidden="true">
+<img class="ornament-hand" src="hand-ornament.svg" alt="">
+</div>
+
 <div class="center-text">
 <span class="center-line">[*]❗!•!⊹!!Тотально⟂Тишина!!⊹!!Тут⟂<span class="zero">0</span>!⟂Ъ!!⊹!!Т⟂Ф!⊹!</span>
 <span class="center-line">Твердо⟂Тишина!!⊹!!Тишина⟂Теперь!!⋈!!</span>
 <span class="center-line">[Образ⟂Отсчета_!![!•!⟂<span class="zero">0</span>![йа👣ЪдЪро_бал╔✶╗анса]!Ъ⟂!•!]!!Сферон!!]</span>
 <span class="center-line">⋈!!Точно⟂ДоволенЪ!!⊹!!Давление⟂Тишины!! ⊹!!Ф⟂Ф!!</span>
 <span class="center-line">⊹!!_!Ъ⟂Ъ!_!!⊹!!Тишина⟂Тотальна!!!•!❗[*]</span>
+</div>
+
+<div class="hand-slot hand-slot-right" aria-hidden="true">
+<img class="ornament-hand ornament-hand-right" src="hand-ornament.svg" alt="">
+</div>
 </div>
 
 <div class="space-bottom"></div>
