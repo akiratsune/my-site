@@ -67,6 +67,7 @@ body {
 }
 
 @media (hover: hover) and (pointer: fine) {
+
     .logo-subtitle a {
         position: relative;
         display: inline-block;
@@ -120,27 +121,13 @@ body {
 }
 
 @keyframes magic-fade {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) scale(.4);
-    }
-    15% {
-        opacity: 1;
-        transform: translateX(-50%) scale(1);
-    }
-    75% {
-        opacity: 1;
-        transform: translateX(-50%) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(-50%) scale(.4);
-    }
+    0% { opacity: 0; transform: translateX(-50%) scale(.4); }
+    15% { opacity: 1; transform: translateX(-50%) scale(1); }
+    75% { opacity: 1; transform: translateX(-50%) scale(1); }
+    100% { opacity: 0; transform: translateX(-50%) scale(.4); }
 }
 
-.space-top {
-    flex: 1;
-}
+.space-top { flex: 1; }
 
 .center-stage {
     width: 100%;
@@ -165,9 +152,7 @@ body {
     object-fit: contain;
 }
 
-.ornament-hand-right {
-    transform: scaleX(-1);
-}
+.ornament-hand-right { transform: scaleX(-1); }
 
 .center-text {
     margin: 0;
@@ -200,9 +185,7 @@ body {
     font-weight: normal;
 }
 
-.space-bottom {
-    flex: 1;
-}
+.space-bottom { flex: 1; }
 
 .bottom {
     display: flex;
@@ -228,18 +211,13 @@ body {
     text-decoration: underline;
 }
 
-.document-link a:hover {
-    opacity: .7;
-}
+.document-link a:hover { opacity: .7; }
 
 @media (max-width: 768px) {
-    body {
-        padding: 28px 20px 35px;
-    }
 
-    .logo {
-        font-size: 24px;
-    }
+    body { padding: 28px 20px 35px; }
+
+    .logo { font-size: 24px; }
 
     .logo-subtitle {
         margin-top: 12px;
@@ -265,29 +243,28 @@ body {
         margin: 30px 0;
     }
 
-    .hand-slot {
-        display: none;
-    }
+    .hand-slot { display: none; }
 
     .center-text {
-        width: 92vw;
-        max-width: 358px;
+        width: 88vw;
+        max-width: 330px;
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: clamp(12.5px, 3.45vw, 14px);
+        font-size: clamp(13px, 3.6vw, 15px);
         line-height: 1.5;
-        overflow: visible;
         word-break: normal;
+        overflow-wrap: anywhere;
         hyphens: none;
     }
 
     .center-line {
-        display: block;
-        width: max-content;
+        display: inline;
+        width: auto;
+        white-space: normal;
+        transform: none !important;
+    }
+
+    .mobile-ending {
         white-space: nowrap;
-        transform-origin: center center;
     }
 
     .bottom-message {
@@ -321,12 +298,7 @@ THE S<span class="zero">0</span>L<span class="zero">0</span> Dress C<span class=
 </div>
 
 <div class="logo-subtitle">
-<a
-    href="https://docs.google.com/document/d/1DtUyB0xvjeMP4cyrFprCFp6KbFlUc3Oz0lO7DcO1AtM/edit?tab=t.0"
-    target="_blank"
-    rel="noopener noreferrer">
-zetsno
-</a>
+<a href="https://docs.google.com/document/d/1DtUyB0xvjeMP4cyrFprCFp6KbFlUc3Oz0lO7DcO1AtM/edit?tab=t.0" target="_blank" rel="noopener noreferrer">zetsno</a>
 </div>
 
 <div class="space-top"></div>
@@ -341,7 +313,7 @@ zetsno
 <span class="center-line">Твердо⟂Тишина!!⊹!!Тишина⟂Теперь!!⋈!![Образ⟂</span>
 <span class="center-line">Отсчета_!![!•!⟂<span class="zero">0</span>![йа👣ЪдЪро_бал╔✶╗анса]!Ъ⟂!•!]!!</span>
 <span class="center-line">Сферон!!]⋈!!Точно⟂ДоволенЪ!!⊹!!Давление⟂Тишины!!</span>
-<span class="center-line"> ⊹!!Ф⟂Ф!!⊹!!_!Ъ⟂Ъ!_!!⊹!!Тишина⟂Тотальна!!!•!❗[*]</span>
+<span class="center-line"> ⊹!!Ф⟂Ф!!⊹!!_!Ъ⟂Ъ!_!!⊹!!Тишина⟂Тотальна<span class="mobile-ending">!!!•!❗[*]</span></span>
 </div>
 
 <div class="hand-slot hand-slot-right" aria-hidden="true">
@@ -354,12 +326,7 @@ zetsno
 <div class="bottom">
 <div class="document-link">
 !•! რეგ.
-<a
-    href="https://docs.google.com/document/d/1aff2EAbDRncKDoHabG_YfdSNvMZW5DM1zd7aU5xUC5A/edit?tab=t.0"
-    target="_blank"
-    rel="noopener noreferrer">
-№ 10410/9
-</a>
+<a href="https://docs.google.com/document/d/1aff2EAbDRncKDoHabG_YfdSNvMZW5DM1zd7aU5xUC5A/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a>
 !•!
 </div>
 
@@ -368,38 +335,19 @@ zetsno
 
 <script>
 (function () {
-    const centerText = document.querySelector('.center-text');
-    const desktopMarkup = centerText.innerHTML;
+    function alignDesktopCenterLines() {
+        const lines = Array.from(document.querySelectorAll('.center-text .center-line'));
 
-    const mobileMarkup = `
-<span class="center-line">[*]❗!•!⊹!!Тотально⟂Тишина!!⊹</span>
-<span class="center-line">!!Тут⟂<span class="zero">0</span>!⟂Ъ!!⊹!!Т⟂Ф!⊹!Твердо⟂</span>
-<span class="center-line">Тишина!!⊹!!Тишина⟂Теперь!!⋈!![</span>
-<span class="center-line">Образ⟂Отсчета_!![!•!⟂<span class="zero">0</span>![йа👣ЪдЪро_</span>
-<span class="center-line">бал╔✶╗анса]!Ъ⟂!•!]!!Сферон!!]⋈</span>
-<span class="center-line">!!Точно⟂ДоволенЪ!!⊹!!Давление⟂</span>
-<span class="center-line">Тишины!! ⊹!!Ф⟂Ф!! ⊹!!_!Ъ⟂Ъ!_</span>
-<span class="center-line">!!⊹!!Тишина⟂Тотальна!!!•!❗[*]</span>`;
+        if (!window.matchMedia('(min-width: 769px)').matches) {
+            lines.forEach(function (line) {
+                line.style.transform = '';
+            });
+            return;
+        }
 
-    let currentMode = null;
-
-    function clamp(value, min, max) {
-        return Math.min(max, Math.max(min, value));
-    }
-
-    function setMode(isMobile) {
-        const mode = isMobile ? 'mobile' : 'desktop';
-        if (currentMode === mode) return;
-
-        centerText.innerHTML = isMobile ? mobileMarkup : desktopMarkup;
-        currentMode = mode;
-    }
-
-    function alignDesktop(lines) {
         if (lines.length < 4) return;
 
         lines.forEach(function (line) {
-            line.style.letterSpacing = '';
             line.style.transform = 'none';
         });
 
@@ -414,69 +362,11 @@ zetsno
         });
     }
 
-    function alignMobile(lines) {
-        lines.forEach(function (line) {
-            line.style.letterSpacing = '0px';
-            line.style.transform = 'none';
-        });
-
-        const naturalWidths = lines.map(function (line) {
-            return line.getBoundingClientRect().width;
-        }).sort(function (a, b) {
-            return a - b;
-        });
-
-        const middle = naturalWidths.length / 2;
-        const targetWidth = naturalWidths.length % 2
-            ? naturalWidths[Math.floor(middle)]
-            : (naturalWidths[middle - 1] + naturalWidths[middle]) / 2;
-
-        lines.forEach(function (line) {
-            const naturalWidth = line.getBoundingClientRect().width;
-            const characterCount = Array.from(line.textContent).length;
-
-            if (characterCount > 1 && naturalWidth > 0) {
-                const neededSpacing =
-                    (targetWidth - naturalWidth) / (characterCount - 1);
-
-                line.style.letterSpacing =
-                    clamp(neededSpacing, -0.9, 0.9) + 'px';
-            }
-        });
-
-        lines.forEach(function (line) {
-            const adjustedWidth = line.getBoundingClientRect().width;
-            if (adjustedWidth <= 0) return;
-
-            const residualScale = clamp(
-                targetWidth / adjustedWidth,
-                0.985,
-                1.015
-            );
-
-            line.style.transform = 'scaleX(' + residualScale + ')';
-        });
-    }
-
-    function alignCenterLines() {
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
-        setMode(isMobile);
-
-        const lines = Array.from(centerText.querySelectorAll('.center-line'));
-        if (!lines.length) return;
-
-        if (isMobile) {
-            alignMobile(lines);
-        } else {
-            alignDesktop(lines);
-        }
-    }
-
-    window.addEventListener('load', alignCenterLines);
-    window.addEventListener('resize', alignCenterLines);
+    window.addEventListener('load', alignDesktopCenterLines);
+    window.addEventListener('resize', alignDesktopCenterLines);
 
     if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(alignCenterLines);
+        document.fonts.ready.then(alignDesktopCenterLines);
     }
 })();
 </script>
@@ -498,13 +388,8 @@ zetsno
     let sessionEnded = false;
     let heartbeatInFlight = false;
 
-    function nowMs() {
-        return Date.now();
-    }
-
-    function isPageActive() {
-        return document.visibilityState === "visible";
-    }
+    function nowMs() { return Date.now(); }
+    function isPageActive() { return document.visibilityState === "visible"; }
 
     function startActiveClock() {
         if (activeSince !== null || !isPageActive() || sessionEnded) return;
@@ -513,20 +398,14 @@ zetsno
 
     function stopActiveClock() {
         if (activeSince === null) return;
-
-        unsentActiveSeconds += Math.floor(
-            Math.max(0, nowMs() - activeSince) / 1000
-        );
-
+        unsentActiveSeconds += Math.floor(Math.max(0, nowMs() - activeSince) / 1000);
         activeSince = null;
     }
 
     function collectActiveSeconds() {
         stopActiveClock();
-
         const seconds = unsentActiveSeconds;
         unsentActiveSeconds = 0;
-
         if (isPageActive() && !sessionEnded) startActiveClock();
         return seconds;
     }
@@ -536,9 +415,7 @@ zetsno
             method: "POST",
             credentials: "include",
             keepalive,
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
         });
     }
@@ -550,49 +427,26 @@ zetsno
                 documentReferrer: document.referrer || null
             });
 
-            if (!response.ok) {
-                console.error("ABARA start request failed:", response.status);
-                return;
-            }
-
+            if (!response.ok) return;
             const result = await response.json();
-
-            if (!result || !result.session || !result.session.id) {
-                console.error("ABARA start response missing session id");
-                return;
-            }
+            if (!result || !result.session || !result.session.id) return;
 
             sessionId = result.session.id;
             startActiveClock();
-
-            heartbeatTimer = window.setInterval(
-                sendHeartbeat,
-                HEARTBEAT_INTERVAL_MS
-            );
-        } catch (error) {
-            console.error("ABARA start error:", error);
-        }
+            heartbeatTimer = window.setInterval(sendHeartbeat, HEARTBEAT_INTERVAL_MS);
+        } catch (error) {}
     }
 
     async function sendHeartbeat() {
         if (sessionId === null || sessionEnded || heartbeatInFlight) return;
-
         const activeSeconds = collectActiveSeconds();
         heartbeatInFlight = true;
 
         try {
-            const response = await postJson(HEARTBEAT_ENDPOINT, {
-                sessionId,
-                activeSeconds
-            });
-
-            if (!response.ok) {
-                unsentActiveSeconds += activeSeconds;
-                console.error("ABARA heartbeat failed:", response.status);
-            }
+            const response = await postJson(HEARTBEAT_ENDPOINT, { sessionId, activeSeconds });
+            if (!response.ok) unsentActiveSeconds += activeSeconds;
         } catch (error) {
             unsentActiveSeconds += activeSeconds;
-            console.error("ABARA heartbeat error:", error);
         } finally {
             heartbeatInFlight = false;
         }
@@ -600,7 +454,6 @@ zetsno
 
     function endSession() {
         if (sessionId === null || sessionEnded) return;
-
         sessionEnded = true;
 
         if (heartbeatTimer !== null) {
@@ -609,16 +462,10 @@ zetsno
         }
 
         const activeSeconds = collectActiveSeconds();
-        const payload = JSON.stringify({
-            sessionId,
-            activeSeconds
-        });
+        const payload = JSON.stringify({ sessionId, activeSeconds });
 
         if (navigator.sendBeacon) {
-            const blob = new Blob([payload], {
-                type: "application/json"
-            });
-
+            const blob = new Blob([payload], { type: "application/json" });
             if (navigator.sendBeacon(END_ENDPOINT, blob)) return;
         }
 
@@ -626,9 +473,7 @@ zetsno
             method: "POST",
             credentials: "include",
             keepalive: true,
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: payload
         }).catch(function () {});
     }
