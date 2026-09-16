@@ -67,20 +67,21 @@ body{padding:28px 20px 35px}
 <div class="center-stage">
 <div class="hand-slot" aria-hidden="true"><img class="ornament-hand" src="hand-ornament-final.svg?v=1" alt=""></div>
 <div class="desktop-center-text">
-<span class="center-line">[*]❗!•!⊹!!Тотально⟂Тишина!!⊹!!Тут⟂<span class="zero">0</span>!⟂Ъ!!⊹!!Т⟂Ф!⊹!</span>
-<span class="center-line">Твердо⟂Тишина!!⊹!!Тишина⟂Теперь!!⋈!![Образ⟂</span>
-<span class="center-line">Отсчета_!![!•!⟂<span class="zero">0</span>![йа👣ЪдЪро_бал╔✶╗анса]!Ъ⟂!•!]!!</span>
-<span class="center-line">Сферон!!]⋈!!Точно⟂ДоволенЪ!!⊹!!Давление⟂Тишины!!</span>
-<span class="center-line">⊹!!Ф⟂Ф!!⊹!!_!Ъ⟂Ъ!_!!⊹!!Тишина⟂Тотальна!!!•!❗[*]</span>
+<span class="center-line">《 ⊹ 『 [✶]→❗!•! ⊹ !!ТотальноТ⟂ТишинаТ!! ⊹ !!Тут⟂Ъ!⟂!<span class="zero">0</span>!!</span>
+<span class="center-line">⊹ !!Т⟂Ф!! ⊹ !!Твердо⟂Тишина!! ⊹ !!Т⟂Т!! 』 ⊹ 》 ⋈ !!</span>
+<span class="center-line">[Образ✶Отсчета!![!•!⟂<span class="zero">0</span>![орЪ👣дЪаЙ[И『←╔✶╗→』И]</span>
+<span class="center-line">Йбал👣ланса]!Ъ⟂!•!]!!Сфе✶ронЪ!!] !! ⋈ 《 ⊹ 『</span>
+<span class="center-line">!!Т⟂Д!! ⊹ !!Давление⟂Тишины!! ⊹ !!Ф⟂Ф!! ⊹</span>
+<span class="center-line">!!!Ъ⟂Ъ!!! ⊹ !!ТанишиТ⟂ТоньлатоТ!! ⊹ !•!❗←[✶] 』 ⊹ 》</span>
 </div>
 <div class="mobile-center-text">
-<span class="mobile-line">[*]❗!•!⊹!!Тотально⟂Тишина!!⊹!!Тут⟂<span class="zero">0</span>!⟂Ъ!!</span>
-<span class="mobile-line">⊹!!Т⟂Ф!⊹!!Твердо⟂Тишина!!⊹!!</span>
-<span class="mobile-line">Тишина⟂Теперь!!⋈!![Образ⟂Отсчета_!![!•!⟂<span class="zero">0</span>!</span>
-<span class="mobile-line">[йа👣ЪдЪро_бал╔✶╗анса]</span>
-<span class="mobile-line">!Ъ⟂!•!]!!Сферон!!]⋈!!Точно⟂ДоволенЪ!!⊹!!</span>
-<span class="mobile-line">Давление⟂Тишины!!⊹!!Ф⟂Ф!!⊹!!_!Ъ⟂Ъ!_!!</span>
-<span class="mobile-line">⊹!!Тишина⟂Тотальна!!!•!❗ [*]</span>
+<span class="mobile-line">《 ⊹ 『 [✶]→❗!•! ⊹ !!ТотальноТ⟂ТишинаТ!!</span>
+<span class="mobile-line">⊹ !!Тут⟂Ъ!⟂!<span class="zero">0</span>!! ⊹ !!Т⟂Ф!! ⊹ !!Твердо⟂Тишина!!</span>
+<span class="mobile-line">⊹ !!Т⟂Т!! 』 ⊹ 》 ⋈ !! [Образ✶Отсчета!!</span>
+<span class="mobile-line">[!•!⟂<span class="zero">0</span>![орЪ👣дЪаЙ[И『←╔✶╗→』И]Йбал👣ланса]</span>
+<span class="mobile-line">!Ъ⟂!•!]!!Сфе✶ронЪ!!] !! ⋈ 《 ⊹ 『 !!Т⟂Д!!</span>
+<span class="mobile-line">⊹ !!Давление⟂Тишины!! ⊹ !!Ф⟂Ф!! ⊹ !!!Ъ⟂Ъ!!!</span>
+<span class="mobile-line">⊹ !!ТанишиТ⟂ТоньлатоТ!! ⊹ !•!❗←[✶] 』 ⊹ 》</span>
 </div>
 <div class="hand-slot" aria-hidden="true"><img class="ornament-hand ornament-hand-right" src="hand-ornament-final.svg?v=1" alt=""></div>
 </div>
@@ -94,10 +95,10 @@ body{padding:28px 20px 35px}
 function alignDesktop(){
 if(!window.matchMedia('(min-width:769px)').matches)return;
 const lines=Array.from(document.querySelectorAll('.desktop-center-text .center-line'));
-if(lines.length<4)return;
+if(lines.length<2)return;
 lines.forEach(function(line){line.style.transform='none'});
-const referenceWidth=lines[3].getBoundingClientRect().width;
-lines.forEach(function(line,index){if(index===3)return;const width=line.getBoundingClientRect().width;if(width>0)line.style.transform='scaleX('+(referenceWidth/width)+')'});
+const referenceWidth=lines[1].getBoundingClientRect().width;
+lines.forEach(function(line,index){if(index===1)return;const width=line.getBoundingClientRect().width;if(width>0)line.style.transform='scaleX('+(referenceWidth/width)+')'});
 }
 window.addEventListener('load',alignDesktop);
 window.addEventListener('resize',alignDesktop);
