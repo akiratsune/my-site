@@ -38,12 +38,12 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;paddi
 .ornament-hand-right{transform:scaleX(-1)}
 .zero{font-family:Cambria,"Times New Roman",serif;font-weight:normal}
 .desktop-center-text{margin:0;font-size:23px;line-height:1.5;display:flex;flex-direction:column;align-items:center}
-.desktop-center-text .center-line{display:block;width:max-content;white-space:nowrap;transform-origin:center center}
+.desktop-center-text .center-line{display:block;width:max-content;white-space:nowrap}
 .mobile-center-text{display:none}
 .bottom{display:flex;flex-direction:column;align-items:center}
 .bottom-message{font-size:28px;line-height:1.2}
 .document-link{margin-bottom:12px;font-size:20px;line-height:1.1;color:#000}
-.document-link a{color:inherit;text-decoration:underline}
+.document-link a,.desktop-center-text a,.mobile-center-text a{color:inherit;text-decoration:underline}
 .document-link a:hover{opacity:.7}
 @media (max-width:768px){
 body{padding:28px 20px 35px}
@@ -67,47 +67,28 @@ body{padding:28px 20px 35px}
 <div class="center-stage">
 <div class="hand-slot" aria-hidden="true"><img class="ornament-hand" src="hand-ornament-final.svg?v=1" alt=""></div>
 <div class="desktop-center-text">
-<span class="center-line center-cap">zetsno</span>
-<span class="center-line">Ты можешь считать можешь не считать</span>
+<span class="center-line">zetsno Ты можешь считать можешь не считать</span>
 <span class="center-line">но отсчитывать все равно будешь</span>
 <span class="center-line">В/недвиженно/стЪ ≡ в/недвижно/стЪ</span>
 <span class="center-line">относительно всего включая саму в/недвижно/стЪ</span>
 <span class="center-line">БубЪнитЪ вспомнить вспоминай вспомнитЪ</span>
-<span class="center-line">Тишина Граница МетрономЪ ТишинаТ</span>
-<span class="center-line center-cap">!•! რეგ. № 10410/9 !•!</span>
+<span class="center-line">Тишина Граница МетрономЪ ТишинаТ !•! რეგ. <a href="https://docs.google.com/document/d/1XMyf-5GwBUBdIa_mpgP-l0D9kUmD7zLLlVAzf5AAnTk/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> !•!</span>
 </div>
 <div class="mobile-center-text">
-<span class="mobile-line">《 ⊹ 『 [💥]→❗!•! ⊹ !!ТотальноТ⟂ТишинаТ!!</span>
-<span class="mobile-line">⊹ !!Тут⟂Ъ!⟂!<span class="zero">0</span>!! ⊹ !!Т⟂Ф!! ⊹ !!Твердо⟂Тишина!!</span>
-<span class="mobile-line">⊹ !!Т⟂Т!! 』 ⊹ 》 ⋈ !! [Образ💥Отсчета!!</span>
-<span class="mobile-line">[!•!⟂<span class="zero">0</span>![орЪ👣дЪаЙ[И『←╔💥╗→』И]Йбал👣ланса]</span>
-<span class="mobile-line">!Ъ⟂!•!]!!Сфе💥ронЪ!!] !! ⋈ 《 ⊹ 『 !!Т⟂Д!!</span>
-<span class="mobile-line">⊹ !!Давление⟂Тишины!! ⊹ !!Ф⟂Ф!! ⊹ !!!Ъ⟂Ъ!!!</span>
-<span class="mobile-line">⊹ !!ТанишиТ⟂ТоньлатоТ!! ⊹ !•!❗←[💥] 』 ⊹ 》</span>
+<span class="mobile-line">zetsno Ты можешь считать можешь не считать</span>
+<span class="mobile-line">но отсчитывать все равно будешь</span>
+<span class="mobile-line">В/недвиженно/стЪ ≡ в/недвижно/стЪ</span>
+<span class="mobile-line">относительно всего включая саму</span>
+<span class="mobile-line">в/недвижно/стЪ БубЪнитЪ вспомнить</span>
+<span class="mobile-line">вспоминай вспомнитЪ Тишина Граница</span>
+<span class="mobile-line">МетрономЪ ТишинаТ !•! რეგ. <a href="https://docs.google.com/document/d/1XMyf-5GwBUBdIa_mpgP-l0D9kUmD7zLLlVAzf5AAnTk/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> !•!</span>
 </div>
 <div class="hand-slot" aria-hidden="true"><img class="ornament-hand ornament-hand-right" src="hand-ornament-final.svg?v=1" alt=""></div>
 </div>
 <div class="space-bottom"></div>
 <div class="bottom">
-<div class="document-link">!•! რეგ. <a href="https://docs.google.com/document/d/1XMyf-5GwBUBdIa_mpgP-l0D9kUmD7zLLlVAzf5AAnTk/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> !•!</div>
 <div class="bottom-message">*ОбЪнимаюЪ_КрепЪкЪо_ВашаЪ_РЪепЪкЪаЪ!*</div>
 </div>
-<script>
-(function(){
-function alignDesktop(){
-if(!window.matchMedia('(min-width:769px)').matches)return;
-const allLines=Array.from(document.querySelectorAll('.desktop-center-text .center-line'));
-const lines=Array.from(document.querySelectorAll('.desktop-center-text .center-line:not(.center-cap)'));
-if(lines.length<2)return;
-allLines.forEach(function(line){line.style.transform='none'});
-const referenceWidth=lines[0].getBoundingClientRect().width;
-lines.forEach(function(line,index){if(index===0)return;const width=line.getBoundingClientRect().width;if(width>0)line.style.transform='scaleX('+(referenceWidth/width)+')'});
-}
-window.addEventListener('load',alignDesktop);
-window.addEventListener('resize',alignDesktop);
-if(document.fonts&&document.fonts.ready)document.fonts.ready.then(alignDesktop);
-})();
-</script>
 <!-- ABARA Website Analytics -->
 <script>
 (function () {
