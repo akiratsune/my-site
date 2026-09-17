@@ -67,9 +67,14 @@ body{padding:28px 20px 35px}
 <div class="center-stage">
 <div class="hand-slot" aria-hidden="true"><img class="ornament-hand" src="hand-ornament-final.svg?v=1" alt=""></div>
 <div class="desktop-center-text">
-<span class="center-line">Ты можешь считать можешь не считать но отсчитывать все равно будешь</span>
-<span class="center-line">В/недвиженно/стЪ ≡ в/недвижно/стЪ относительно всего включая саму в/недвижно/стЪ</span>
-<span class="center-line">БубЪнитЪ вспомнить вспоминай вспомнитЪ Тишина Граница МетрономЪ ТишинаТ</span>
+<span class="center-line center-cap">zetsno</span>
+<span class="center-line">Ты можешь считать можешь не считать</span>
+<span class="center-line">но отсчитывать все равно будешь</span>
+<span class="center-line">В/недвиженно/стЪ ≡ в/недвижно/стЪ</span>
+<span class="center-line">относительно всего включая саму в/недвижно/стЪ</span>
+<span class="center-line">БубЪнитЪ вспомнить вспоминай вспомнитЪ</span>
+<span class="center-line">Тишина Граница МетрономЪ ТишинаТ</span>
+<span class="center-line center-cap">!•! რეგ. № 10410/9 !•!</span>
 </div>
 <div class="mobile-center-text">
 <span class="mobile-line">《 ⊹ 『 [💥]→❗!•! ⊹ !!ТотальноТ⟂ТишинаТ!!</span>
@@ -91,11 +96,12 @@ body{padding:28px 20px 35px}
 (function(){
 function alignDesktop(){
 if(!window.matchMedia('(min-width:769px)').matches)return;
-const lines=Array.from(document.querySelectorAll('.desktop-center-text .center-line'));
+const allLines=Array.from(document.querySelectorAll('.desktop-center-text .center-line'));
+const lines=Array.from(document.querySelectorAll('.desktop-center-text .center-line:not(.center-cap)'));
 if(lines.length<2)return;
-lines.forEach(function(line){line.style.transform='none'});
-const referenceWidth=lines[1].getBoundingClientRect().width;
-lines.forEach(function(line,index){if(index===1)return;const width=line.getBoundingClientRect().width;if(width>0)line.style.transform='scaleX('+(referenceWidth/width)+')'});
+allLines.forEach(function(line){line.style.transform='none'});
+const referenceWidth=lines[0].getBoundingClientRect().width;
+lines.forEach(function(line,index){if(index===0)return;const width=line.getBoundingClientRect().width;if(width>0)line.style.transform='scaleX('+(referenceWidth/width)+')'});
 }
 window.addEventListener('load',alignDesktop);
 window.addEventListener('resize',alignDesktop);
