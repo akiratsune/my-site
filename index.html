@@ -6,7 +6,7 @@
 <title>abara.ge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Marcellus+SC&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -41,7 +41,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;paddi
 .desktop-center-text .center-line{display:block;width:100%;white-space:normal}
 .desktop-center-main{text-align:justify;text-align-last:justify}
 .desktop-final-pair{display:flex;justify-content:center;align-items:baseline;gap:.45em;width:100%;padding-inline:0;text-align:initial;text-align-last:auto}
-.mobile-center-text{display:none}
+.mobile-center-text{font-family:Georgia,serif;display:none}
 .bottom{display:flex;flex-direction:column;align-items:center}
 .bottom-message{font-size:28px;line-height:1.2}
 .document-link{margin-bottom:0;font-size:22px;line-height:1.1;color:#000}
@@ -62,10 +62,6 @@ body{padding:28px 20px}
 .document-link a{pointer-events:auto;color:inherit;text-decoration:underline}}
 @media (prefers-reduced-motion:reduce){.logo-subtitle a::before,.logo-subtitle a::after{transition:none;animation:none}}
 
-.glyph-slot{position:relative;display:inline-block;font-family:Georgia,serif;font-weight:400;vertical-align:baseline}
-.glyph-ghost{visibility:hidden}
-.glyph-marcellus{position:absolute;left:50%;top:0;font-family:"Marcellus SC",serif;font-weight:400;line-height:inherit;white-space:pre;transform:translateX(-50%)}
-.glyph-marcellus.mirror-x{transform:translateX(-50%) scaleX(-1)}
 
 </style>
 </head>
@@ -94,50 +90,6 @@ body{padding:28px 20px}
 <div class="document-link">!•! <a href="https://docs.google.com/document/d/1XMyf-5GwBUBdIa_mpgP-l0D9kUmD7zLLlVAzf5AAnTk/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> !•!</div>
 </div>
 
-<script>
-(function(){
-  const direct = {
-    "А":"A","а":"a","В":"B","в":"b","С":"C","с":"c","Е":"E","е":"e",
-    "Н":"H","н":"h","К":"K","к":"k","М":"M","м":"m","О":"O","о":"o",
-    "Р":"P","р":"p","Т":"T","т":"t","Х":"X","х":"x",
-    "У":"Y","у":"y"
-  };
-  const mirror = {"И":"N","и":"n"};
-
-  function renderTextNode(node){
-    const text = node.nodeValue;
-    if (!text || !/[А-Яа-яЁё]/.test(text)) return;
-    const frag = document.createDocumentFragment();
-    for (const ch of text) {
-      if (direct[ch] || mirror[ch]) {
-        const slot = document.createElement("span");
-        slot.className = "glyph-slot";
-        const ghost = document.createElement("span");
-        ghost.className = "glyph-ghost";
-        ghost.textContent = ch;
-        const face = document.createElement("span");
-        face.className = "glyph-marcellus" + (mirror[ch] ? " mirror-x" : "");
-        face.textContent = direct[ch] || mirror[ch];
-        slot.appendChild(ghost);
-        slot.appendChild(face);
-        frag.appendChild(slot);
-      } else {
-        frag.appendChild(document.createTextNode(ch));
-      }
-    }
-    node.replaceWith(frag);
-  }
-
-  function renderRoot(root){
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    const nodes = [];
-    while (walker.nextNode()) nodes.push(walker.currentNode);
-    nodes.forEach(renderTextNode);
-  }
-
-  document.querySelectorAll(".desktop-center-main,.desktop-final-pair,.mobile-center-text").forEach(renderRoot);
-})();
-</script>
 
 <!-- ABARA Website Analytics -->
 <script>
