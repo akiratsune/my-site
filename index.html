@@ -6,7 +6,6 @@
 <title>abara.ge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -21,16 +20,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;overflow-x:hidden}
 body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:42px 20px;background:#fff;font-family:Georgia,serif;text-align:center}
-.logo{font-size:32px;line-height:1.2}
-.logo-subtitle{margin-top:0;font-family:"Cinzel",Georgia,serif;font-size:22px;font-weight:700;letter-spacing:2px;line-height:1.1}
-.logo-subtitle a{color:inherit;text-decoration:none}
-@media (hover:hover) and (pointer:fine){
-.logo-subtitle a{position:relative;display:inline-block;padding-bottom:5px}
-.logo-subtitle a::before{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:currentColor;opacity:.9;transition:width .8s cubic-bezier(.22,1,.36,1)}
-.logo-subtitle a::after{content:"";position:absolute;left:0;bottom:-3px;width:7px;height:7px;border-radius:50%;background:#ffd86b;opacity:0;transform:translateX(-50%) scale(.4);box-shadow:0 0 4px #ffd86b,0 0 8px #ffd86b,0 0 14px #ffca3a,0 0 20px rgba(255,202,58,.65);transition:left .8s cubic-bezier(.22,1,.36,1),opacity .18s ease,transform .18s ease}
-.logo-subtitle a:hover::before{width:100%}
-.logo-subtitle a:hover::after{left:100%;opacity:1;transform:translateX(-50%) scale(1);animation:magic-fade .8s forwards}}
-@keyframes magic-fade{0%{opacity:0;transform:translateX(-50%) scale(.4)}15%,75%{opacity:1;transform:translateX(-50%) scale(1)}100%{opacity:0;transform:translateX(-50%) scale(.4)}}
+15%,75%{opacity:1;transform:translateX(-50%) scale(1)}100%{opacity:0;transform:translateX(-50%) scale(.4)}}
 .space-top,.space-bottom{flex:1}
 .center-stage{width:100%;display:grid;grid-template-columns:minmax(0,1fr) max-content minmax(0,1fr);align-items:center;margin:30px 0}
 .hand-slot{min-width:0;display:flex;align-items:center;justify-content:center}
@@ -40,55 +30,46 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;paddi
 .desktop-center-text{font-family:Georgia,serif;width:min(680px,58vw);margin:0;font-size:23px;line-height:1.5;text-align:justify;text-align-last:justify}
 .desktop-center-text .center-line{display:block;width:100%;white-space:normal}
 .desktop-center-main{text-align:justify;text-align-last:justify}
-.desktop-final-pair{display:flex;justify-content:center;align-items:baseline;gap:.45em;width:100%;padding-inline:0;text-align:initial;text-align-last:auto}
+.desktop-final-row{display:grid;grid-template-columns:repeat(4,max-content);justify-content:space-between;align-items:baseline;width:100%;margin-top:0;text-align:initial;text-align-last:auto;column-gap:18px}.center-zetsno{font-family:Georgia,serif;font-weight:normal;letter-spacing:0}.center-reg{white-space:nowrap}.center-reg a{color:inherit;text-decoration:underline}
 .mobile-center-text{font-family:Georgia,serif;display:none}
-.bottom{display:flex;flex-direction:column;align-items:center}
-.bottom-message{font-size:28px;line-height:1.2}
-.document-link{margin-bottom:0;font-size:22px;line-height:1.1;color:#000}
-.document-link a,.desktop-center-text a,.mobile-center-text a{color:inherit;text-decoration:underline}
-.document-link a:hover{opacity:.7}
 @media (max-width:768px){
 body{padding:28px 20px}
-.logo{font-size:24px}
-.logo-subtitle{margin-top:0;font-size:19px;letter-spacing:2px}
-.logo-subtitle a{display:inline;padding-bottom:0;color:inherit;text-decoration:none}
-.logo-subtitle a::before,.logo-subtitle a::after{display:none;content:none;animation:none;transition:none}
 .center-stage{display:block;margin:30px 0}
 .hand-slot,.desktop-center-text{display:none}
 .mobile-center-text{font-family:Georgia,serif;display:flex;flex-direction:column;align-items:center;width:92vw;max-width:355px;margin:0 auto;font-size:clamp(12px,3.35vw,14px);line-height:1.5}
-.mobile-line{display:block;white-space:nowrap}
-.bottom-message{max-width:100%;font-size:14px;line-height:1.2;white-space:nowrap}
-.document-link{margin-bottom:0;font-size:15px;line-height:1.1}
-.document-link a{pointer-events:auto;color:inherit;text-decoration:underline}}
-@media (prefers-reduced-motion:reduce){.logo-subtitle a::before,.logo-subtitle a::after{transition:none;animation:none}}
+.mobile-line{display:block;white-space:nowrap}.mobile-final-row{display:flex;justify-content:center;gap:.55em;white-space:nowrap}.mobile-reg{display:block;white-space:nowrap;margin-top:.15em}.mobile-reg a{color:inherit;text-decoration:underline}
+}
+@media (prefers-reduced-motion:reduce){}
 
 
 </style>
 </head>
 <body>
-<div class="logo-subtitle"><a href="https://docs.google.com/document/d/1DtUyB0xvjeMP4cyrFprCFp6KbFlUc3Oz0lO7DcO1AtM/edit?tab=t.0" target="_blank" rel="noopener noreferrer">zetsno</a></div>
 <div class="space-top"></div>
 <div class="center-stage">
 <div class="hand-slot" aria-hidden="true"><img class="ornament-hand" src="hand-ornament-final.svg?v=1" alt=""></div>
 <div class="desktop-center-text">
-<div class="desktop-center-main">Ты можешь считать можешь не считать но отсчитывать все равно будешь В/недвиженно/стЪ ≡ в/недвижно/стЪ относительно всего включая саму в/недвижно/стЪ БубЪнитЪ вспомнить вспоминай вспомнитЪ Тишина Граница</div>
-<div class="desktop-final-pair"><span>МетрономЪ</span><span>ТишинаТ</span></div>
+<div class="desktop-center-main">ты можешь считать можешь не считать но отсчитывать все равно будешь в/недвиженно/стъ ≡ в/недвижно/стъ относительно всего включая саму в/недвижно/стЪ бубнитъ вспомнить вспоминай вспомнитъ тишинат граница</div>
+<div class="desktop-final-row">
+<span class="center-zetsno">zetsno</span>
+<span>метрономъ</span>
+<span>тишинат</span>
+<span class="center-reg">!•! რეგ. <a href="https://docs.google.com/document/d/1JO52ehvQffTC3cglG4L-8sVRg95NIcC63a0o9tfZVz0/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> !•!</span>
+</div>
 </div>
 <div class="mobile-center-text">
-<span class="mobile-line">Ты можешь считать можешь не считать</span>
+<span class="mobile-line">ты можешь считать можешь не считать</span>
 <span class="mobile-line">но отсчитывать все равно будешь</span>
-<span class="mobile-line">В/недвиженно/стЪ ≡ в/недвижно/стЪ</span>
+<span class="mobile-line">в/недвиженно/стъ ≡ в/недвижно/стъ</span>
 <span class="mobile-line">относительно всего включая саму</span>
-<span class="mobile-line">в/недвижно/стЪ БубЪнитЪ вспомнить</span>
-<span class="mobile-line">вспоминай вспомнитЪ Тишина Граница</span>
-<span class="mobile-line">МетрономЪ ТишинаТ</span>
+<span class="mobile-line">в/недвижно/стЪ бубнитъ вспомнить</span>
+<span class="mobile-line">вспоминай вспомнитъ тишинат граница</span>
+<span class="mobile-final-row"><span>zetsno</span><span>метрономъ</span><span>тишинат</span></span>
+<span class="mobile-reg">!•! რეგ. <a href="https://docs.google.com/document/d/1JO52ehvQffTC3cglG4L-8sVRg95NIcC63a0o9tfZVz0/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> !•!</span>
 </div>
 <div class="hand-slot" aria-hidden="true"><img class="ornament-hand ornament-hand-right" src="hand-ornament-final.svg?v=1" alt=""></div>
 </div>
 <div class="space-bottom"></div>
-<div class="bottom">
-<div class="document-link">!•! <a href="https://docs.google.com/document/d/1JO52ehvQffTC3cglG4L-8sVRg95NIcC63a0o9tfZVz0/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> !•!</div>
-</div>
 
 
 <!-- ABARA Website Analytics -->
