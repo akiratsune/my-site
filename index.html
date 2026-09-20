@@ -80,25 +80,30 @@ body{
     .center-stage{display:block}
     .hand-slot,.desktop-center-text{display:none}
     .mobile-center-text{
-        display:none;
-        flex-direction:column;
-        align-items:center;
-        width:92vw;
-        max-width:355px;
+        display:grid;
+        width:min(84vw,320px);
+        aspect-ratio:1 / 1;
         margin:0 auto;
-        font-size:clamp(13px,3.5vw,15px);
-        line-height:1.5;
+        place-content:center;
+        font-size:14px;
+        line-height:1.45;
     }
-    .mobile-line{display:block;white-space:nowrap}
+    .mobile-center-main{
+        width:100%;
+        text-align:justify;
+        text-align-last:justify;
+    }
     .mobile-final-row{
         display:flex;
         justify-content:center;
         gap:.55em;
+        margin-top:.2em;
         white-space:nowrap;
     }
     .mobile-reg{
         display:block;
         margin-top:.15em;
+        text-align:center;
         white-space:nowrap;
     }
     .mobile-reg a{color:inherit;text-decoration:underline}
@@ -124,12 +129,7 @@ body{
     </div>
 
     <div class="mobile-center-text">
-        <span class="mobile-line">ты можешь считать можешь не считать</span>
-        <span class="mobile-line">но отсчитывать все равно будешь</span>
-        <span class="mobile-line">в/недвиженно/стъ ≡ в/недвижно/стъ</span>
-        <span class="mobile-line">относительно всего включая саму</span>
-        <span class="mobile-line">в/недвижно/стъ бубнитъ вспомнить</span>
-        <span class="mobile-line">вспоминай вспомнитъ тишинат граница</span>
+        <div class="mobile-center-main">ты можешь считать можешь не считать но отсчитывать все равно будешь в/недвиженно/стъ ≡ в/недвижно/стъ относительно всего включая саму в/недвижно/стъ бубнитъ вспомнить вспоминай вспомнитъ тишинат граница</div>
         <span class="mobile-final-row">
             <span>zetsno</span>
             <span>метрономъ</span>
