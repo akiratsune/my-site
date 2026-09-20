@@ -149,106 +149,353 @@ body{
 <script>
 (function () {
     "use strict";
-    const START_ENDPOINT = "/website/session/start";
-    const HEARTBEAT_ENDPOINT = "/website/session/heartbeat";
-    const END_ENDPOINT = "/website/session/end";
-    const HEARTBEAT_INTERVAL_MS = 5000;
-    let sessionId = null;
-    let heartbeatTimer = null;
-    let activeSince = null;
-    let unsentActiveSeconds = 0;
-    let sessionEnded = false;
-    let heartbeatInFlight = false;
-    function nowMs() { return Date.now(); }
-    function isPageActive() { return document.visibilityState === "visible"; }
+
+    const START_ENDPOINT =
+        "/website/session/start";
+
+    const HEARTBEAT_ENDPOINT =
+        "/website/session/heartbeat";
+
+    const END_ENDPOINT =
+        "/website/session/end";
+
+    const HEARTBEAT_INTERVAL_MS =
+        5000;
+
+    let sessionId =
+        null;
+
+    let heartbeatTimer =
+        null;
+
+    let activeSince =
+        null;
+
+    let unsentActiveSeconds =
+        0;
+
+    let sessionEnded =
+        false;
+
+    let heartbeatInFlight =
+        false;
+
+    function nowMs() {
+        return Date.now();
+    }
+
+    function isPageActive() {
+        return (
+            document.visibilityState ===
+            "visible"
+        );
+    }
+
     function startActiveClock() {
-        if (activeSince !== null || !isPageActive() || sessionEnded) return;
-        activeSince = nowMs();
+        if (
+            activeSince !== null ||
+            !isPageActive() ||
+            sessionEnded
+        ) {
+            return;
+        }
+
+        activeSince =
+            nowMs();
     }
+
     function stopActiveClock() {
-        if (activeSince === null) return;
-        unsentActiveSeconds += Math.floor(Math.max(0, nowMs() - activeSince) / 1000);
-        activeSince = null;
+        if (
+            activeSince === null
+        ) {
+            return;
+        }
+
+        const elapsedMs =
+            Math.max(
+                0,
+                nowMs() - activeSince
+            );
+
+        unsentActiveSeconds +=
+            Math.floor(
+                elapsedMs / 1000
+            );
+
+        activeSince =
+            null;
     }
+
     function collectActiveSeconds() {
         stopActiveClock();
-        const seconds = unsentActiveSeconds;
-        unsentActiveSeconds = 0;
-        if (isPageActive() && !sessionEnded) startActiveClock();
+
+        const seconds =
+            unsentActiveSeconds;
+
+        unsentActiveSeconds =
+            0;
+
+        if (
+            isPageActive() &&
+            !sessionEnded
+        ) {
+            startActiveClock();
+        }
+
         return seconds;
     }
-    async function postJson(endpoint, payload, keepalive = false) {
-        return fetch(endpoint, {
-            method: "POST",
-            credentials: "include",
-            keepalive,
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-        });
+
+    async function postJson(
+        endpoint,
+        payload,
+        keepalive = false
+    ) {
+        return fetch(
+            endpoint,
+            {
+                method: "POST",
+
+                credentials:
+                    "include",
+
+                keepalive,
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body:
+                    JSON.stringify(
+                        payload
+                    )
+            }
+        );
     }
+
     async function startSession() {
         try {
-            const response = await postJson(START_ENDPOINT, {
-                pagePath: window.location.pathname + window.location.search,
-                documentReferrer: document.referrer || null
-            });
-            if (!response.ok) return;
-            const result = await response.json();
-            if (!result || !result.session || !result.session.id) return;
-            sessionId = result.session.id;
+            const response =
+                await postJson(
+                    START_ENDPOINT,
+                    {
+                        pagePath:
+                            window.location.pathname +
+                            window.location.search,
+
+                        documentReferrer:
+                            document.referrer || null
+                    }
+                );
+
+            if (!response.ok) {
+                console.error(
+                    "ABARA start request failed:",
+                    response.status
+                );
+
+                return;
+            }
+
+            const result =
+                await response.json();
+
+            if (
+                !result ||
+                !result.session ||
+                !result.session.id
+            ) {
+                console.error(
+                    "ABARA start response missing session id"
+                );
+
+                return;
+            }
+
+            sessionId =
+                result.session.id;
+
             startActiveClock();
-            heartbeatTimer = window.setInterval(sendHeartbeat, HEARTBEAT_INTERVAL_MS);
-        } catch (error) {}
-    }
-    async function sendHeartbeat() {
-        if (sessionId === null || sessionEnded || heartbeatInFlight) return;
-        const activeSeconds = collectActiveSeconds();
-        heartbeatInFlight = true;
-        try {
-            const response = await postJson(HEARTBEAT_ENDPOINT, { sessionId, activeSeconds });
-            if (!response.ok) unsentActiveSeconds += activeSeconds;
+
+            heartbeatTimer =
+                window.setInterval(
+                    function () {
+                        sendHeartbeat();
+                    },
+                    HEARTBEAT_INTERVAL_MS
+                );
         } catch (error) {
-            unsentActiveSeconds += activeSeconds;
+            console.error(
+                "ABARA start error:",
+                error
+            );
+        }
+    }
+
+    async function sendHeartbeat() {
+        if (
+            sessionId === null ||
+            sessionEnded ||
+            heartbeatInFlight
+        ) {
+            return;
+        }
+
+        const activeSeconds =
+            collectActiveSeconds();
+
+        heartbeatInFlight =
+            true;
+
+        try {
+            const response =
+                await postJson(
+                    HEARTBEAT_ENDPOINT,
+                    {
+                        sessionId,
+                        activeSeconds
+                    }
+                );
+
+            if (!response.ok) {
+                unsentActiveSeconds +=
+                    activeSeconds;
+
+                console.error(
+                    "ABARA heartbeat failed:",
+                    response.status
+                );
+            }
+        } catch (error) {
+            unsentActiveSeconds +=
+                activeSeconds;
+
+            console.error(
+                "ABARA heartbeat error:",
+                error
+            );
         } finally {
-            heartbeatInFlight = false;
+            heartbeatInFlight =
+                false;
         }
     }
+
     function endSession() {
-        if (sessionId === null || sessionEnded) return;
-        sessionEnded = true;
-        if (heartbeatTimer !== null) {
-            clearInterval(heartbeatTimer);
-            heartbeatTimer = null;
+        if (
+            sessionId === null ||
+            sessionEnded
+        ) {
+            return;
         }
-        const activeSeconds = collectActiveSeconds();
-        const payload = JSON.stringify({ sessionId, activeSeconds });
-        if (navigator.sendBeacon) {
-            const blob = new Blob([payload], { type: "application/json" });
-            if (navigator.sendBeacon(END_ENDPOINT, blob)) return;
+
+        sessionEnded =
+            true;
+
+        if (
+            heartbeatTimer !== null
+        ) {
+            clearInterval(
+                heartbeatTimer
+            );
+
+            heartbeatTimer =
+                null;
         }
-        fetch(END_ENDPOINT, {
-            method: "POST",
-            credentials: "include",
-            keepalive: true,
-            headers: { "Content-Type": "application/json" },
-            body: payload
-        }).catch(function () {});
+
+        const activeSeconds =
+            collectActiveSeconds();
+
+        const payload =
+            JSON.stringify({
+                sessionId,
+                activeSeconds
+            });
+
+        if (
+            navigator.sendBeacon
+        ) {
+            const blob =
+                new Blob(
+                    [payload],
+                    {
+                        type:
+                            "application/json"
+                    }
+                );
+
+            const sent =
+                navigator.sendBeacon(
+                    END_ENDPOINT,
+                    blob
+                );
+
+            if (sent) {
+                return;
+            }
+        }
+
+        fetch(
+            END_ENDPOINT,
+            {
+                method: "POST",
+
+                credentials:
+                    "include",
+
+                keepalive: true,
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body:
+                    payload
+            }
+        ).catch(
+            function () {}
+        );
     }
-    document.addEventListener("visibilitychange", function () {
-        if (document.visibilityState === "visible") {
+
+    document.addEventListener(
+        "visibilitychange",
+        function () {
+            if (
+                document.visibilityState ===
+                "visible"
+            ) {
+                startActiveClock();
+
+                sendHeartbeat();
+            } else {
+                stopActiveClock();
+
+                sendHeartbeat();
+            }
+        }
+    );
+
+    window.addEventListener(
+        "focus",
+        function () {
             startActiveClock();
-            sendHeartbeat();
-        } else {
-            stopActiveClock();
+
             sendHeartbeat();
         }
-    });
-    window.addEventListener("focus", function () {
-        startActiveClock();
-        sendHeartbeat();
-    });
-    window.addEventListener("blur", sendHeartbeat);
-    window.addEventListener("pagehide", endSession);
+    );
+
+    window.addEventListener(
+        "blur",
+        function () {
+            sendHeartbeat();
+        }
+    );
+
+    window.addEventListener(
+        "pagehide",
+        endSession
+    );
+
     startSession();
 })();
 </script>
