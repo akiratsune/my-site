@@ -344,6 +344,12 @@ body{
         const activeSeconds =
             collectActiveSeconds();
 
+        if (
+            activeSeconds <= 0
+        ) {
+            return;
+        }
+
         heartbeatInFlight =
             true;
 
