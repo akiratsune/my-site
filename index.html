@@ -150,6 +150,19 @@ body{
 (function () {
     "use strict";
 
+    const previewParams =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    if (
+        previewParams.get(
+            "preview"
+        ) === "1"
+    ) {
+        return;
+    }
+
     const START_ENDPOINT =
         "/website/session/start";
 
