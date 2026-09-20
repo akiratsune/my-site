@@ -160,7 +160,7 @@ body{
         "/website/session/end";
 
     const HEARTBEAT_INTERVAL_MS =
-        5000;
+        60000;
 
     let sessionId =
         null;
@@ -465,12 +465,8 @@ body{
                 "visible"
             ) {
                 startActiveClock();
-
-                sendHeartbeat();
             } else {
                 stopActiveClock();
-
-                sendHeartbeat();
             }
         }
     );
@@ -479,15 +475,13 @@ body{
         "focus",
         function () {
             startActiveClock();
-
-            sendHeartbeat();
         }
     );
 
     window.addEventListener(
         "blur",
         function () {
-            sendHeartbeat();
+            stopActiveClock();
         }
     );
 
