@@ -80,17 +80,19 @@ body{
     .center-stage{display:block}
     .hand-slot,.desktop-center-text{display:none}
     .mobile-center-text{
-        display:block;
-        width:min(84vw,320px);
-        margin:0 auto;
-        font-size:14px;
+        display:flex;
+        width:100%;
+        margin:0;
+        justify-content:center;
+        font-size:clamp(11px,3.5897vw,14px);
         line-height:1.45;
     }
     .mobile-center-main{
         width:max-content;
         max-width:none;
-        margin:0 auto;
+        margin:0;
         text-align:center;
+        transform-origin:center center;
     }
     .mobile-line{
         display:block;
