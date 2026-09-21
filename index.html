@@ -87,20 +87,32 @@ body{
         line-height:1.45;
     }
     .mobile-center-main{
-        width:max-content;
-        max-width:100%;
+        width:min(72vw,274px);
         margin:0 auto;
-        text-align:center;
     }
     .mobile-line{
         display:block;
         width:100%;
         line-height:1.45;
+        text-align:justify;
+        text-align-last:justify;
         white-space:nowrap;
     }
-    .mobile-line-justify{
-        display:flex;
+    .mobile-final-row{
+        display:grid;
+        grid-template-columns:repeat(3,max-content);
         justify-content:space-between;
+        width:100%;
+        margin-top:.2em;
+        white-space:nowrap;
+    }
+    .mobile-reg{
+        display:block;
+        width:100%;
+        margin-top:.15em;
+        text-align:justify;
+        text-align-last:justify;
+        white-space:nowrap;
     }
     .mobile-final-row{
         display:flex;
@@ -130,16 +142,25 @@ body{
     <div class="desktop-center-text">
         <div class="desktop-center-main">ты можешь считать можешь не считать но отсчитывать все равно будешь в/недвиженно/стъ ≡ в/недвижно/стъ относительно всего включая саму в/недвижно/стъ бубнитъ вспомнить вспоминай вспомнитъ тишинат граница</div>
         <div class="desktop-final-row">
-            <span>zetsno</span>
-            <span>метрономъ</span>
-            <span>тишинат</span>
-            <span class="center-reg">!•! რეგ. <a href="https://docs.google.com/document/d/1JO52ehvQffTC3cglG4L-8sVRg95NIcC63a0o9tfZVz0/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> !•!</span>
-        </div>
-    </div>
-
-    <div class="mobile-center-text">
+            <span>zetsno<    <div class="mobile-center-text">
         <div class="mobile-center-main">
-            <span class="mobile-line">სიჩუმე !Ъ!0გაჩერდი0!Ъ!</span>
+            <span class="mobile-line">ты можешь считать можешь</span>
+            <span class="mobile-line">не считать но отсчитывать</span>
+            <span class="mobile-line">все равно будешь</span>
+            <span class="mobile-line">в/недвиженно/стъ ≡</span>
+            <span class="mobile-line">в/недвижно/стъ относительно</span>
+            <span class="mobile-line">всего включая саму</span>
+            <span class="mobile-line">в/недвижно/стъ бубнитъ</span>
+            <span class="mobile-line">вспомнить вспоминай</span>
+            <span class="mobile-line">вспомнитъ тишинат граница</span>
+            <span class="mobile-final-row">
+                <span>zetsno</span>
+                <span>метрономъ</span>
+                <span>тишинат</span>
+            </span>
+            <span class="mobile-reg">!•! რეგ. <a href="https://docs.google.com/document/d/1JO52ehvQffTC3cglG4L-8sVRg95NIcC63a0o9tfZVz0/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> !•!</span>
+        </div>
+გაჩერდი0!Ъ!</span>
             <span class="mobile-line mobile-line-justify"><span>ყურადღება</span><span>სუნთქვა</span></span>
             <span class="mobile-line mobile-line-justify"><span>ვარჯიში</span><span>მოთმინება</span></span>
             <span class="mobile-line">!Ъ!0გაჩერდი0!Ъ! სიჩუმე</span>
