@@ -105,21 +105,18 @@ body{
         justify-content:space-between;
     }
     .mobile-phone-copy{
-        display:inline-block;
-        width:max-content;
+        display:block;
+        width:min(88vw,370px);
         max-width:100%;
         line-height:1.55;
     }
     .mobile-phone-copy > span{
         display:block;
+        width:100%;
         white-space:nowrap;
+        text-align:left;
     }
-    .mobile-copy-line-1{letter-spacing:0}
-    .mobile-copy-line-2{letter-spacing:.012em}
-    .mobile-copy-line-3{letter-spacing:.035em}
-    .mobile-copy-line-4{letter-spacing:.055em}
-    .mobile-copy-line-5{letter-spacing:.08em}
-    .mobile-copy-line-6{letter-spacing:.015em}
+
     .mobile-phone-copy a{
         color:inherit;
         text-decoration:underline;
@@ -157,12 +154,13 @@ body{
     <div class="mobile-center-text">
         <div class="mobile-center-main">
             <div class="mobile-phone-copy">
-                <span class="mobile-copy-line-1">✅ !•! ⟂ [REGISTERED INVARIANT ║ SHORT PASSPORT</span>
-                <span class="mobile-copy-line-2">OF THE MONOLITH] ⟂ !•! Processorless logical device</span>
-                <span class="mobile-copy-line-3">of a toroidal phase Reference Frame based on a</span>
-                <span class="mobile-copy-line-4">bidirectional invariant of the S-fractal with zero</span>
-                <span class="mobile-copy-line-5">energy balance of quantum-geometric topology</span>
-                <span class="mobile-copy-line-6">(Sakpatent <a href="https://docs.google.com/document/d/1JO52ehvQffTC3cglG4L-8sVRg95NIcC63a0o9tfZVz0/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> dated 06.07.2026) ✅</span>
+                <span>✅ !•! ⟂ [REGISTERED INVARIANT ║</span>
+                <span>SHORT PASSPORT OF THE MONOLITH]</span>
+                <span>⟂ !•! Processorless logical device of a toroidal</span>
+                <span>phase Reference Frame based on a bidirectional</span>
+                <span>invariant of the S-fractal with zero energy</span>
+                <span>balance of quantum-geometric topology</span>
+                <span>(Sakpatent <a href="https://docs.google.com/document/d/1JO52ehvQffTC3cglG4L-8sVRg95NIcC63a0o9tfZVz0/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> dated 06.07.2026) ✅</span>
             </div>
         </div>
     </div>
@@ -173,6 +171,39 @@ body{
 </main>
 
 <div class="space-bottom"></div>
+
+
+<script>
+(function () {
+    function fitMobilePassportLines() {
+        if (window.innerWidth > 768) return;
+
+        const box = document.querySelector(".mobile-phone-copy");
+        if (!box) return;
+
+        const lines = Array.from(box.children);
+        if (!lines.length) return;
+
+        lines.forEach(function (line) {
+            line.style.letterSpacing = "0px";
+        });
+
+        const targetWidth = box.clientWidth;
+
+        lines.forEach(function (line) {
+            const text = line.textContent || "";
+            const gaps = Math.max(1, text.length - 1);
+            const naturalWidth = line.scrollWidth;
+            const extra = targetWidth - naturalWidth;
+            const spacing = extra > 0 ? extra / gaps : 0;
+            line.style.letterSpacing = spacing.toFixed(3) + "px";
+        });
+    }
+
+    window.addEventListener("load", fitMobilePassportLines);
+    window.addEventListener("resize", fitMobilePassportLines);
+})();
+</script>
 
 <!-- ABARA Website Analytics -->
 <script>
