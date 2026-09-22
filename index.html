@@ -74,6 +74,21 @@ body{
 .center-reg{white-space:nowrap}
 .center-reg a{color:inherit;text-decoration:underline}
 .desktop-center-main a{color:inherit;text-decoration:underline}
+.desktop-passport-copy{
+    display:block;
+    width:max-content;
+    max-width:100%;
+    margin:0 auto;
+}
+.desktop-passport-copy > span{
+    display:block;
+    width:100%;
+    white-space:nowrap;
+    text-align:justify;
+    text-align-last:justify;
+    letter-spacing:normal;
+}
+.desktop-passport-copy a{color:inherit;text-decoration:underline}
 .mobile-center-text{display:none}
 
 @media (max-width:768px){
@@ -154,14 +169,6 @@ body{
         max-width:100%;
         margin:0 auto;
     }
-    .desktop-center-main{
-        text-align:left;
-        text-align-last:auto;
-    }
-    .desktop-line{
-        display:block;
-        white-space:nowrap;
-    }
 }
 </style>
 </head>
@@ -174,11 +181,12 @@ body{
     </div>
 
     <div class="desktop-center-text">
-        <div class="desktop-center-main">
-            <span class="desktop-line">✅ !•! ⟂ [REGISTERED INVARIANT ║ SHORT PASSPORT OF THE</span>
-            <span class="desktop-line">MONOLITH] ⟂ !•! Processorless logical device of a toroidal phase Reference</span>
-            <span class="desktop-line">Frame based on a Bidirectional invariant of the S-fractal with zero energy balance</span>
-            <span class="desktop-line">of quantum-geometric topology (Sakpatent <a href="https://docs.google.com/document/d/1JO52ehvQffTC3cglG4L-8sVRg95NIcC63a0o9tfZVz0/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> dated 06.07.2026) ✅</span>
+        <div class="desktop-passport-copy">
+            <span>✅ !•! ⟂ [REGISTERED INVARIANT ║ SHORT PASSPORT OF</span>
+            <span>THE MONOLITH] ⟂ !•! Processorless logical device of a toroidal</span>
+            <span>phase Reference Frame based on a bidirectional invariant of</span>
+            <span>the S-fractal with zero energy balance of quantum-geometric</span>
+            <span>topology (Sakpatent <a href="https://docs.google.com/document/d/1JO52ehvQffTC3cglG4L-8sVRg95NIcC63a0o9tfZVz0/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> dated 06.07.2026) ✅</span>
         </div>
     </div>
 
@@ -224,6 +232,40 @@ body{
 
     window.addEventListener("load", sizeMobilePassportToReference);
     window.addEventListener("resize", sizeMobilePassportToReference);
+})();
+</script>
+
+
+<script>
+(function () {
+    function sizeDesktopPassportToWidestLine() {
+        if (window.innerWidth <= 768) return;
+
+        const box = document.querySelector(".desktop-passport-copy");
+        if (!box) return;
+
+        const lines = Array.from(box.children);
+        if (!lines.length) return;
+
+        box.style.width = "max-content";
+        lines.forEach(function (line) {
+            line.style.width = "auto";
+        });
+
+        let maxWidth = 0;
+        lines.forEach(function (line) {
+            const width = Math.ceil(line.getBoundingClientRect().width);
+            if (width > maxWidth) maxWidth = width;
+        });
+
+        box.style.width = maxWidth + "px";
+        lines.forEach(function (line) {
+            line.style.width = "100%";
+        });
+    }
+
+    window.addEventListener("load", sizeDesktopPassportToWidestLine);
+    window.addEventListener("resize", sizeDesktopPassportToWidestLine);
 })();
 </script>
 
