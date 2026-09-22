@@ -106,7 +106,7 @@ body{
     }
     .mobile-phone-copy{
         display:block;
-        width:min(88vw,370px);
+        width:max-content;
         max-width:100%;
         line-height:1.55;
     }
@@ -114,7 +114,13 @@ body{
         display:block;
         width:100%;
         white-space:nowrap;
+        text-align:justify;
+        text-align-last:justify;
+        letter-spacing:normal;
+    }
+    .mobile-phone-copy > .mobile-reference-line{
         text-align:left;
+        text-align-last:left;
     }
 
     .mobile-phone-copy a{
@@ -157,7 +163,7 @@ body{
                 <span>✅ !•! ⟂ [REGISTERED INVARIANT ║</span>
                 <span>SHORT PASSPORT OF THE MONOLITH]</span>
                 <span>⟂ !•! Processorless logical device of a toroidal</span>
-                <span>phase Reference Frame based on a bidirectional</span>
+                <span class="mobile-reference-line">phase Reference Frame based on a bidirectional</span>
                 <span>invariant of the S-fractal with zero energy</span>
                 <span>balance of quantum-geometric topology</span>
                 <span>(Sakpatent <a href="https://docs.google.com/document/d/1JO52ehvQffTC3cglG4L-8sVRg95NIcC63a0o9tfZVz0/edit?tab=t.0" target="_blank" rel="noopener noreferrer">№ 10410/9</a> dated 06.07.2026) ✅</span>
@@ -173,35 +179,26 @@ body{
 <div class="space-bottom"></div>
 
 
+
+
 <script>
 (function () {
-    function fitMobilePassportLines() {
+    function sizeMobilePassportToReference() {
         if (window.innerWidth > 768) return;
 
         const box = document.querySelector(".mobile-phone-copy");
-        if (!box) return;
+        const reference = document.querySelector(".mobile-reference-line");
+        if (!box || !reference) return;
 
-        const lines = Array.from(box.children);
-        if (!lines.length) return;
+        box.style.width = "max-content";
+        reference.style.width = "auto";
 
-        lines.forEach(function (line) {
-            line.style.letterSpacing = "0px";
-        });
-
-        const targetWidth = box.clientWidth;
-
-        lines.forEach(function (line) {
-            const text = line.textContent || "";
-            const gaps = Math.max(1, text.length - 1);
-            const naturalWidth = line.scrollWidth;
-            const extra = targetWidth - naturalWidth;
-            const spacing = extra > 0 ? extra / gaps : 0;
-            line.style.letterSpacing = spacing.toFixed(3) + "px";
-        });
+        const targetWidth = Math.ceil(reference.getBoundingClientRect().width);
+        box.style.width = targetWidth + "px";
     }
 
-    window.addEventListener("load", fitMobilePassportLines);
-    window.addEventListener("resize", fitMobilePassportLines);
+    window.addEventListener("load", sizeMobilePassportToReference);
+    window.addEventListener("resize", sizeMobilePassportToReference);
 })();
 </script>
 
